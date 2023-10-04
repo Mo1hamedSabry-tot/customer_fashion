@@ -1,0 +1,145 @@
+{
+  "listEntries": [
+      {
+          "productType": "Physical",
+          "outlines": [
+              {
+                  "items": [
+                      {
+                          "id": "742e4c13-d6e4-4237-a08d-ea42b0f64363",
+                          "seoObjectType": "Catalog",
+                          "seoInfos": null,
+                          "name": "eslam Nas1",
+                          "hasVirtualParent": false
+                      },
+                      {
+                          "id": "52251942-98a5-44eb-af21-a91e992c3b3e",
+                          "seoObjectType": "Category",
+                          "seoInfos": [
+                              {
+                                  "name": null,
+                                  "semanticUrl": "es-cat1",
+                                  "pageTitle": null,
+                                  "metaDescription": null,
+                                  "imageAltDescription": null,
+                                  "metaKeywords": null,
+                                  "storeId": null,
+                                  "objectId": "52251942-98a5-44eb-af21-a91e992c3b3e",
+                                  "objectType": "Category",
+                                  "isActive": true,
+                                  "languageCode": "ar-EG",
+                                  "id": "10548d35-41dc-4b24-b26d-e57de013648c"
+                              }
+                          ],
+                          "name": "es-cat1",
+                          "hasVirtualParent": false
+                      },
+                      {
+                          "id": "9cd5fdaf-a5b9-4281-805b-9e7725898067",
+                          "seoObjectType": "CatalogProduct",
+                          "seoInfos": [],
+                          "name": "es-cat1-prod1",
+                          "hasVirtualParent": false
+                      }
+                  ]
+              }
+          ],
+          "type": "product",
+          "isActive": true,
+          "imageUrl": "http://20.163.148.155:8080/assets/catalog/742e4/LRO-63864286/SNB.png",
+          "code": "LRO-63864286",
+          "name": "es-cat1-prod1",
+          "links": null,
+          "outline": [
+              "742e4c13-d6e4-4237-a08d-ea42b0f64363",
+              "52251942-98a5-44eb-af21-a91e992c3b3e",
+              "9cd5fdaf-a5b9-4281-805b-9e7725898067"
+          ],
+          "path": [
+              "eslam Nas1",
+              "es-cat1",
+              "es-cat1-prod1"
+          ],
+          "catalogId": "742e4c13-d6e4-4237-a08d-ea42b0f64363",
+          "seoObjectType": "CatalogProduct",
+          "seoInfos": null,
+          "createdDate": "2023-09-17T14:10:50.2356406Z",
+          "modifiedDate": "2023-09-17T14:10:50.2356406Z",
+          "createdBy": "al_khbaz",
+          "modifiedBy": "al_khbaz",
+          "id": "9cd5fdaf-a5b9-4281-805b-9e7725898067"
+      }
+  ],
+  "totalCount": 1,
+  "results": [
+      {
+          "productType": "Physical",
+          "outlines": [
+              {
+                  "items": [
+                      {
+                          "id": "742e4c13-d6e4-4237-a08d-ea42b0f64363",
+                          "seoObjectType": "Catalog",
+                          "seoInfos": null,
+                          "name": "eslam Nas1",
+                          "hasVirtualParent": false
+                      },
+                      {
+                          "id": "52251942-98a5-44eb-af21-a91e992c3b3e",
+                          "seoObjectType": "Category",
+                          "seoInfos": [
+                              {
+                                  "name": null,
+                                  "semanticUrl": "es-cat1",
+                                  "pageTitle": null,
+                                  "metaDescription": null,
+                                  "imageAltDescription": null,
+                                  "metaKeywords": null,
+                                  "storeId": null,
+                                  "objectId": "52251942-98a5-44eb-af21-a91e992c3b3e",
+                                  "objectType": "Category",
+                                  "isActive": true,
+                                  "languageCode": "ar-EG",
+                                  "id": "10548d35-41dc-4b24-b26d-e57de013648c"
+                              }
+                          ],
+                          "name": "es-cat1",
+                          "hasVirtualParent": false
+                      },
+                      {
+                          "id": "9cd5fdaf-a5b9-4281-805b-9e7725898067",
+                          "seoObjectType": "CatalogProduct",
+                          "seoInfos": [],
+                          "name": "es-cat1-prod1",
+                          "hasVirtualParent": false
+                      }
+                  ]
+              }
+          ],
+          "type": "product",
+          "isActive": true,
+          "imageUrl": "http://20.163.148.155:8080/assets/catalog/742e4/LRO-63864286/SNB.png",
+          "code": "LRO-63864286",
+          "name": "es-cat1-prod1",
+          "links": null,
+          "outline": [
+              "742e4c13-d6e4-4237-a08d-ea42b0f64363",
+              "52251942-98a5-44eb-af21-a91e992c3b3e",
+              "9cd5fdaf-a5b9-4281-805b-9e7725898067"
+          ],
+          "path": [
+              "eslam Nas1",
+              "es-cat1",
+              "es-cat1-prod1"
+          ],
+          "catalogId": "742e4c13-d6e4-4237-a08d-ea42b0f64363",
+          "seoObjectType": "CatalogProduct",
+          "seoInfos": null,
+          "createdDate": "2023-09-17T14:10:50.2356406Z",
+          "modifiedDate": "2023-09-17T14:10:50.2356406Z",
+          "createdBy": "al_khbaz",
+          "modifiedBy": "al_khbaz",
+          "id": "9cd5fdaf-a5b9-4281-805b-9e7725898067"
+      }
+  ]
+}
