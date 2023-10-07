@@ -1,90 +1,67 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shimmer/shimmer.dart';
-import 'package:tot_atomic_design/tot_atomic_design.dart';
 
-class TOTPOSFoodCardItemMolecule extends StatelessWidget {
-  final String? mealName;
-
-  final String? mealDescription;
-
-  final String price;
-
-  final String mealImage;
-
+class ProductCard extends StatelessWidget {
+  final String title;
+  final String imageUrl;
+  final double price;
   final VoidCallback onTap;
 
-  const TOTPOSFoodCardItemMolecule(
-      {super.key,
-      required this.mealName,
-      required this.mealDescription,
-      required this.price,
-      required this.mealImage,
-      required this.onTap});
+  ProductCard({
+    required this.title,
+    required this.imageUrl,
+    required this.price, required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
-    double w = MediaQuery.of(context).size.width;
-
-    double h = MediaQuery.of(context).size.height;
-
     return InkWell(
       onTap: onTap,
-      child: Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        color: Colors.white,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(children: [
-            mealImage.toString() == "null"
-                ? SizedBox(
-                    height: 150.h,
-                    child: Shimmer.fromColors(
-                      baseColor: Colors.grey.shade100,
-                      highlightColor: Colors.grey.shade300,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.grey,
-                          borderRadius: BorderRadius.circular(5),
-                        ),
+      child: SizedBox(
+        width: MediaQuery.sizeOf(context).width *0.5,
+        child: Card(
+          elevation: 4,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12.0),
+          ),
+          child: Column(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(12.0),
+                topRight: Radius.circular(12.0),
+              ),
+                child: Image.network(
+                  imageUrl,
+                  height: 150,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                  )
-                : ClipRRect(
-                    borderRadius: BorderRadius.circular(5),
-                    child: Image.network(
-                      height: 150.h,
-
-                      // width: w * 0.3,
-
-                      mealImage,
-
-                      errorBuilder: (context, error, stackTrace) {
-                        return Image.network(
-                            height: h * 0.2,
-                            width: w * 0.3,
-                            "https://ps.w.org/replace-broken-images/assets/icon-256x256.png");
-                      },
+                    SizedBox(height: 4),
+                    Text(
+                      '\$$price',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.green,
+                      ),
                     ),
-                  ),
-            Align(
-                alignment: Alignment.topLeft,
-                child: TOTTextAtom.titleMedium(
-                  mealName!,
-                  color: Colors.black,
-                )),
-            Align(
-                alignment: Alignment.topLeft,
-                child: TOTTextAtom.bodyMedium(
-                  mealDescription!,
-                  color: mealDescription == "In stock"
-                      ? Colors.green
-                      : Colors.deepOrange,
-                )),
-            Align(
-                alignment: Alignment.topLeft,
-                child: TOTTextAtom.titleLarge("\$ $price"))
-          ]),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

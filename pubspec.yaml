@@ -105,6 +105,9 @@ flutter:
     - assets/svg/
     - assets/image/
     - assets/lottie/
+    - assets/shop/img/products/banners/
+    - assets/shop/img/products/dress/
+    - assets/shop/img/products/shoes/
 
 
 flutter_icons:

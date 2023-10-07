@@ -55,3 +55,14 @@ abstract class AppColors {
 
   static const shadowColor = Color(0xFF7D7D7D);
 }
+class ThemeColors {
+  static const Color primaryColor = Color(0xFF6200EE); // Purple
+  static const Color accentColor = Color(0xFF18FFFF); // Cyan
+  static const Color backgroundColor = Color(0xFFF5F5F5); // Light Gray
+  static const Color appBarColor = Color(0xFF6200EE); // Purple
+  static const Color buttonColor = Color(0xFFFF4081); // Pink
+  static const Color textColor = Color(0xFF000000); // Black
+  static const Color iconColor = Color(0xFF757575); // Dark Gray
+  static const Color dividerColor = Color(0xFFBDBDBD); // Gray
+}
+

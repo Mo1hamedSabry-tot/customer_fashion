@@ -27,7 +27,7 @@ class CategoryItem extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 10),
         constraints: const BoxConstraints(maxWidth: 100, minWidth: 50),
         height: 50,
-        width: 50,
+        width: MediaQuery.sizeOf(context).height*0.1,
         child: Center(
           child: Text(
             title,
