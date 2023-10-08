@@ -97,7 +97,9 @@ class HomeScreen extends StatelessWidget {
                                         category.items[index].catalogId;
                                     context.read<AddProductBloc>().categoreyId =
                                         category.items[index].id;
-                                    context.read<AddProductBloc>().categoreyName =
+                                    context
+                                            .read<AddProductBloc>()
+                                            .categoreyName =
                                         category.items[index].name;
                                   }
                                 },
@@ -123,38 +125,87 @@ class HomeScreen extends StatelessWidget {
                 ),
                 SizedBox(
                   height: MediaQuery.sizeOf(context).height * 0.3,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 20,
-                    itemBuilder: ((context, index) {
-                      return ProductCard(
-                        onTap: () {
-                          showBottomSheet(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return Container(
-                                  height: 200,
-                                  width: double.infinity,
-                                  color: Colors.amber,
-                                  child: const Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      ProductDetails(
-                                        imageUrl:
-                                            'https://via.placeholder.com/150',
-                                        price: '15',
-                                        productName: 'title',
-                                      )
-                                    ],
-                                  ),
-                                );
-                              });
+                  child: BlocBuilder<GetProductBloc, GetProductState>(
+                    builder: (context, state) {
+                      return state.maybeWhen(
+                        orElse: () {
+                          return const SizedBox();
                         },
-                        title: 'Sample Product',
-                        imageUrl: 'https://via.placeholder.com/150',
-                        price: 29.99,
+                        loadInProgress: () {
+                          return ListView.separated(
+                            scrollDirection: Axis.horizontal,
+                            separatorBuilder: (context, index) {
+                              return SizedBox(
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.05,
+                              );
+                            },
+                            itemBuilder: (context, index) {
+                              return Center(
+                                child: SizedBox(
+                                  width: MediaQuery.sizeOf(context).width * 0.9,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.25,
+                                  child: Shimmer.fromColors(
+                                    baseColor: Colors.grey.shade100,
+                                    highlightColor: Colors.grey.shade300,
+                                    child: Container(
+                                      margin: const EdgeInsets.symmetric(
+                                          horizontal: 5),
+                                      decoration: BoxDecoration(
+                                        color: AppColors.greyColor,
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
+                            itemCount: 10,
+                          );
+                        },
+                        loadSuccess: (product) {
+                          return ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: product.results!.length,
+                            itemBuilder: ((context, index) {
+                              return ProductCard(
+                                onTap: () {
+                                  showBottomSheet(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return Container(
+                                        height: 200,
+                                        width: double.infinity,
+                                        color: Colors.amber,
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            ProductDetails(
+                                              imageUrl: product.results![index]
+                                                      .imageUrl ??
+                                                  'https://via.placeholder.com/150',
+                                              price: product.results![index].id
+                                                  .toString(),
+                                              productName:
+                                                  product.results![index].name!,
+                                            )
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
+                                title: product.results![index].name!,
+                                imageUrl: product.results![index].imageUrl ??
+                                    'https://via.placeholder.com/150',
+                                price: 29.99,
+                              );
+                            }),
+                          );
+                        },
                       );
-                    }),
+                    },
                   ),
                 ),
               ],
@@ -171,38 +222,87 @@ class HomeScreen extends StatelessWidget {
                 ),
                 SizedBox(
                   height: MediaQuery.sizeOf(context).height * 0.3,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 20,
-                    itemBuilder: ((context, index) {
-                      return ProductCard(
-                        onTap: () {
-                          showBottomSheet(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return Container(
-                                  height: 200,
-                                  width: double.infinity,
-                                  color: Colors.amber,
-                                  child: const Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      ProductDetails(
-                                        imageUrl:
-                                            'https://via.placeholder.com/150',
-                                        price: '15',
-                                        productName: 'title',
-                                      )
-                                    ],
-                                  ),
-                                );
-                              });
+                  child: BlocBuilder<GetProductBloc, GetProductState>(
+                    builder: (context, state) {
+                      return state.maybeWhen(
+                        orElse: () {
+                          return const SizedBox();
                         },
-                        title: 'Sample Product',
-                        imageUrl: 'https://via.placeholder.com/150',
-                        price: 29.99,
+                        loadInProgress: () {
+                          return ListView.separated(
+                            scrollDirection: Axis.horizontal,
+                            separatorBuilder: (context, index) {
+                              return SizedBox(
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.05,
+                              );
+                            },
+                            itemBuilder: (context, index) {
+                              return Center(
+                                child: SizedBox(
+                                  width: MediaQuery.sizeOf(context).width * 0.9,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.25,
+                                  child: Shimmer.fromColors(
+                                    baseColor: Colors.grey.shade100,
+                                    highlightColor: Colors.grey.shade300,
+                                    child: Container(
+                                      margin: const EdgeInsets.symmetric(
+                                          horizontal: 5),
+                                      decoration: BoxDecoration(
+                                        color: AppColors.greyColor,
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
+                            itemCount: 10,
+                          );
+                        },
+                        loadSuccess: (product) {
+                          return ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: product.results!.length,
+                            itemBuilder: ((context, index) {
+                              return ProductCard(
+                                onTap: () {
+                                  showBottomSheet(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return Container(
+                                        height: 200,
+                                        width: double.infinity,
+                                        color: Colors.amber,
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            ProductDetails(
+                                              imageUrl: product.results![index]
+                                                      .imageUrl ??
+                                                  'https://via.placeholder.com/150',
+                                              price: product.results![index].id
+                                                  .toString(),
+                                              productName:
+                                                  product.results![index].name!,
+                                            )
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
+                                title: product.results![index].name!,
+                                imageUrl: product.results![index].imageUrl ??
+                                    'https://via.placeholder.com/150',
+                                price: 29.99,
+                              );
+                            }),
+                          );
+                        },
                       );
-                    }),
+                    },
                   ),
                 ),
               ],
