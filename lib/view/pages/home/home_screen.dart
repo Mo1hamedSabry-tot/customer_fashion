@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
                     itemCount: 10,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      return ReusablePanar(
+                      return const ReusablePanar(
                         imagePath: 'https://via.placeholder.com/150',
                       );
                     }),
@@ -41,7 +41,8 @@ class HomeScreen extends StatelessWidget {
                       return CategoryItem(
                         id: 1,
                         onTab: () {
-                          Navigator.pushNamed(context, CategoryDetails.routeName);
+                          Navigator.pushNamed(
+                              context, CategoryDetails.routeName);
                         },
                         isSelect: true,
                         title: 'jfdk',
@@ -52,9 +53,9 @@ class HomeScreen extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: const TOTTextAtom.bodyLarge(
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: TOTTextAtom.bodyLarge(
                     'AllProduct',
                     color: Colors.grey,
                   ),
@@ -66,19 +67,23 @@ class HomeScreen extends StatelessWidget {
                     itemCount: 20,
                     itemBuilder: ((context, index) {
                       return ProductCard(
-                        onTap: (){
-                          
+                        onTap: () {
                           showBottomSheet(
                               context: context,
                               builder: (BuildContext context) {
                                 return Container(
                                   height: 200,
                                   width: double.infinity,
-                                  color:Colors.amber,
-                                  child: Column(
-                                  mainAxisSize: MainAxisSize.max,
+                                  color: Colors.amber,
+                                  child: const Column(
+                                    mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      ProductDetails(imageUrl:'https://via.placeholder.com/150' ,price: '15',productName: 'title',)
+                                      ProductDetails(
+                                        imageUrl:
+                                            'https://via.placeholder.com/150',
+                                        price: '15',
+                                        productName: 'title',
+                                      )
                                     ],
                                   ),
                                 );
@@ -96,9 +101,9 @@ class HomeScreen extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: const TOTTextAtom.bodyLarge(
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: TOTTextAtom.bodyLarge(
                     'AllProduct',
                     color: Colors.grey,
                   ),
@@ -111,18 +116,22 @@ class HomeScreen extends StatelessWidget {
                     itemBuilder: ((context, index) {
                       return ProductCard(
                         onTap: () {
-                          
                           showBottomSheet(
                               context: context,
                               builder: (BuildContext context) {
                                 return Container(
                                   height: 200,
                                   width: double.infinity,
-                                  color:Colors.amber,
-                                  child: Column(
-                                  mainAxisSize: MainAxisSize.max,
+                                  color: Colors.amber,
+                                  child: const Column(
+                                    mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      ProductDetails(imageUrl:'https://via.placeholder.com/150' ,price: '15',productName: 'title',)
+                                      ProductDetails(
+                                        imageUrl:
+                                            'https://via.placeholder.com/150',
+                                        price: '15',
+                                        productName: 'title',
+                                      )
                                     ],
                                   ),
                                 );
