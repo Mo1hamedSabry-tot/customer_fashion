@@ -222,12 +222,12 @@ class LineItem with _$LineItem {
 @unfreezed
 class OrderItemRequest with _$OrderItemRequest {
   factory OrderItemRequest({
-    @JsonKey(name: 'status') required String status,
-    @JsonKey(name: 'catalogId') required String catalogId,
-    @JsonKey(name: 'currency') required String currency,
-    @JsonKey(name: 'name') required String name,
-    @JsonKey(name: 'sku') required String sku,
-    @JsonKey(name: 'productId') required String productId,
+    required String status,
+    required String catalogId,
+    required String currency,
+    required String name,
+    required String sku,
+    required String productId,
     @Default(false) bool isSlected,
   }) = _OrderItemRequest;
 

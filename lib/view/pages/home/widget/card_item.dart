@@ -6,10 +6,12 @@ class ProductCard extends StatelessWidget {
   final double price;
   final VoidCallback onTap;
 
-  ProductCard({
+  const ProductCard({
+    super.key,
     required this.title,
     required this.imageUrl,
-    required this.price, required this.onTap,
+    required this.price,
+    required this.onTap,
   });
 
   @override
@@ -17,7 +19,7 @@ class ProductCard extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: SizedBox(
-        width: MediaQuery.sizeOf(context).width *0.5,
+        width: MediaQuery.sizeOf(context).width * 0.5,
         child: Card(
           elevation: 4,
           shape: RoundedRectangleBorder(
@@ -26,10 +28,10 @@ class ProductCard extends StatelessWidget {
           child: Column(
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(12.0),
-                topRight: Radius.circular(12.0),
-              ),
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(12.0),
+                  topRight: Radius.circular(12.0),
+                ),
                 child: Image.network(
                   imageUrl,
                   height: 150,
@@ -44,15 +46,15 @@ class ProductCard extends StatelessWidget {
                   children: [
                     Text(
                       title,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 4),
+                    const SizedBox(height: 4),
                     Text(
                       '\$$price',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 14,
                         color: Colors.green,
                       ),

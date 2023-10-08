@@ -6,6 +6,7 @@ class ProductDetails extends StatelessWidget {
   final String imageUrl;
 
   const ProductDetails({
+    super.key,
     required this.productName,
     required this.price,
     required this.imageUrl,
@@ -15,9 +16,9 @@ class ProductDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 2.0,
-      margin: EdgeInsets.all(10.0),
+      margin: const EdgeInsets.all(10.0),
       child: Padding(
-        padding: EdgeInsets.all(12.0),
+        padding: const EdgeInsets.all(12.0),
         child: Column(
           children: [
             Row(
@@ -35,57 +36,59 @@ class ProductDetails extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
-                SizedBox(width: 12.0),
+                const SizedBox(width: 12.0),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // Product Name
                     Text(
                       productName,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16.0,
                       ),
                     ),
-                    SizedBox(height: 4.0),
+                    const SizedBox(height: 4.0),
                     // Product Price
                     Text(
                       '\$$price',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 14.0,
                         color: Colors.green,
                       ),
                     ),
-                    SizedBox(height: 8.0),
+                    const SizedBox(height: 8.0),
                     // Buy Now Button
-                  
                   ],
                 ),
-                Spacer(),                
+                const Spacer(),
               ],
             ),
-            Divider(thickness: 2,),
+            const Divider(
+              thickness: 2,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                
                 ElevatedButton.icon(
-              onPressed: () {
-                // Add to cart logic here
-              },
-              icon: Icon(Icons.add_shopping_cart),
-              label: Text('أضف للعربة'),
-            ),
-            ElevatedButton(
+                  onPressed: () {
+                    // Add to cart logic here
+                  },
+                  icon: const Icon(Icons.add_shopping_cart),
+                  label: const Text('أضف للعربة'),
+                ),
+                ElevatedButton(
                   onPressed: () {
                     // Buy now logic here
                   },
-                  child: Text('اشتر الآن'),
+                  child: const Text('اشتر الآن'),
                 ),
-            ],)
+              ],
+            )
           ],
         ),
       ),
     );
-  }}
+  }
+}
