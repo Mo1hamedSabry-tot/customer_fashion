@@ -11,14 +11,11 @@ class ReusablePanar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // padding: EdgeInsets.all(20),
+      height: MediaQuery.sizeOf(context).height * 0.25,
       margin: const EdgeInsets.all(10),
       decoration: const BoxDecoration(
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(20.0),
-          bottomRight: Radius.circular(20.0),
-        ),
-        color: Colors.grey, // لون البانر
+        borderRadius: BorderRadius.all(Radius.circular(20)),
+        color: Color.fromARGB(0, 209, 38, 38), // لون البانر
       ),
       child: Center(
         child: Column(
@@ -26,8 +23,8 @@ class ReusablePanar extends StatelessWidget {
           children: [
             Image.network(
               imagePath,
-              height: MediaQuery.sizeOf(context).height * 0.25, // ارتفاع الصورة
-              width: MediaQuery.sizeOf(context).width * 0.8, // عرض الصورة
+              height: MediaQuery.sizeOf(context).height * 0.25,
+              width: MediaQuery.sizeOf(context).width * 0.8,
               fit: BoxFit.cover,
             ),
           ],

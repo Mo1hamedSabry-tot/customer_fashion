@@ -31,7 +31,8 @@ class HomeScreen extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
                       return const ReusablePanar(
-                        imagePath: 'https://via.placeholder.com/150',
+                        imagePath:
+                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFRjTgHeskTbRIW2pjP60M2WZJU8zFXozfOS-pW2SbHAVBW-7UcM5fX3WWd4LUhZOSC90&usqp=CAU',
                       );
                     }),
               ),
@@ -175,22 +176,177 @@ class HomeScreen extends StatelessWidget {
                                     context: context,
                                     builder: (BuildContext context) {
                                       return Container(
-                                        height: 200,
+                                        decoration: const BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(30),
+                                              topRight: Radius.circular(30),
+                                            )),
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.63,
                                         width: double.infinity,
-                                        color: Colors.amber,
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            ProductDetails(
-                                              imageUrl: product.results![index]
-                                                      .imageUrl ??
-                                                  'https://via.placeholder.com/150',
-                                              price: product.results![index].id
-                                                  .toString(),
-                                              productName:
-                                                  product.results![index].name!,
-                                            )
-                                          ],
+                                        child: Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 30, vertical: 20),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Center(
+                                                child: Container(
+                                                  width: 40,
+                                                  height: 4,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20),
+                                                    color: Colors.black,
+                                                  ),
+                                                ),
+                                              ),
+                                              const SizedBox(
+                                                height: 20,
+                                              ),
+                                              const Text(
+                                                'Chanel',
+                                                style: TextStyle(
+                                                    fontSize: 20,
+                                                    color: Colors.grey),
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    product
+                                                        .results![index].name!,
+                                                    style: const TextStyle(
+                                                        fontSize: 30,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                  const Spacer(),
+                                                  Text(
+                                                      '\$ ${product.results![index].id!.substring(0, 2)}',
+                                                      style: const TextStyle(
+                                                          fontSize: 30,
+                                                          fontWeight:
+                                                              FontWeight.bold))
+                                                ],
+                                              ),
+                                              const SizedBox(
+                                                height: 20,
+                                              ),
+                                              Text('data is static' * 12,
+                                                  style: const TextStyle(
+                                                      fontSize: 20,
+                                                      color: Colors.grey)),
+                                              const SizedBox(
+                                                height: 20,
+                                              ),
+                                              const Text('Similar this',
+                                                  style: TextStyle(
+                                                      fontSize: 30,
+                                                      fontWeight:
+                                                          FontWeight.bold)),
+                                              const SizedBox(
+                                                height: 20,
+                                              ),
+                                              SizedBox(
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        0.3,
+                                                child: ListView.builder(
+                                                    itemCount: 10,
+                                                    scrollDirection:
+                                                        Axis.horizontal,
+                                                    itemBuilder:
+                                                        (context, index) {
+                                                      return Container(
+                                                        margin: const EdgeInsets
+                                                            .all(5),
+                                                        width:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .width *
+                                                                0.3,
+                                                        height: 150.0,
+                                                        decoration:
+                                                            const BoxDecoration(),
+                                                        child: ClipRRect(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      20.0),
+                                                          child: Image.network(
+                                                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEL-KFPtuGQEgO105UB_6JQBoWMZ6iD-N4rr5LcLlEh0XxXqgGKIOJAkvL4RpAHG_Mukk&usqp=CAU', // URL of the image
+                                                            width: MediaQuery
+                                                                        .sizeOf(
+                                                                            context)
+                                                                    .width *
+                                                                0.3,
+                                                            height: 150.0,
+                                                            fit: BoxFit.cover,
+                                                          ),
+                                                        ),
+                                                      );
+                                                    }),
+                                              ),
+                                              const Spacer(),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Container(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            15),
+                                                    decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              20),
+                                                      border: Border.all(
+                                                        color: Colors
+                                                            .black, // Border color
+                                                        width:
+                                                            2.0, // Border width
+                                                      ),
+                                                    ),
+                                                    child: const Icon(Icons
+                                                        .favorite_border_outlined),
+                                                  ),
+                                                  Container(
+                                                    padding: EdgeInsets.symmetric(
+                                                        horizontal:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .width *
+                                                                0.23,
+                                                        vertical: 15),
+                                                    decoration: BoxDecoration(
+                                                      color: Colors.black,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              13),
+                                                      border: Border.all(
+                                                        color: Colors
+                                                            .black, // Border color
+                                                        width:
+                                                            2.0, // Border width
+                                                      ),
+                                                    ),
+                                                    child: const Text(
+                                                        '+Add To Cart',
+                                                        style: TextStyle(
+                                                            color:
+                                                                Colors.white)),
+                                                  ),
+                                                ],
+                                              )
+                                            ],
+                                          ),
                                         ),
                                       );
                                     },
@@ -198,7 +354,7 @@ class HomeScreen extends StatelessWidget {
                                 },
                                 title: product.results![index].name!,
                                 imageUrl: product.results![index].imageUrl ??
-                                    'https://via.placeholder.com/150',
+                                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEL-KFPtuGQEgO105UB_6JQBoWMZ6iD-N4rr5LcLlEh0XxXqgGKIOJAkvL4RpAHG_Mukk&usqp=CAU',
                                 price: 29.99,
                               );
                             }),
@@ -281,7 +437,7 @@ class HomeScreen extends StatelessWidget {
                                             ProductDetails(
                                               imageUrl: product.results![index]
                                                       .imageUrl ??
-                                                  'https://via.placeholder.com/150',
+                                                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFRjTgHeskTbRIW2pjP60M2WZJU8zFXozfOS-pW2SbHAVBW-7UcM5fX3WWd4LUhZOSC90&usqp=CAU',
                                               price: product.results![index].id
                                                   .toString(),
                                               productName:
@@ -295,7 +451,7 @@ class HomeScreen extends StatelessWidget {
                                 },
                                 title: product.results![index].name!,
                                 imageUrl: product.results![index].imageUrl ??
-                                    'https://via.placeholder.com/150',
+                                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFRjTgHeskTbRIW2pjP60M2WZJU8zFXozfOS-pW2SbHAVBW-7UcM5fX3WWd4LUhZOSC90&usqp=CAU',
                                 price: 29.99,
                               );
                             }),

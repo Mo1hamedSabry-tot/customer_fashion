@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
+import 'package:vendor_foody/core/utils/show_snack_bar.dart';
 import 'package:vendor_foody/view/pages/cart/cart_screen.dart';
 import 'package:vendor_foody/view/pages/favorite/favorite_screen.dart';
 import 'package:vendor_foody/view/pages/home/home_screen.dart';
+import 'package:vendor_foody/view/pages/login/login_screen.dart';
 import 'package:vendor_foody/view/pages/profile/profile_screen.dart';
 
 import '../../../constants/colors.dart';
+import '../../blocs/auth/auth_bloc.dart';
 
 class LayoutScreen extends StatefulWidget {
   static const String routeName = 'layout';
@@ -39,10 +43,48 @@ class _LayoutScreenState extends State<LayoutScreen> {
             title: TOTTextAtom.headLineSmall(titleAppbar[curIndex],
                 color: fontColor),
             automaticallyImplyLeading: false,
-            actionWidgets: const [
-              TOTIconAtom.displayMedium(
-                codePoint: 0xe567,
-                color: Colors.black,
+            actionWidgets: [
+              BlocListener<AuthBloc, AuthState>(
+                listener: (context, state) {
+                 state.maybeWhen(
+                          orElse: () {},
+                          logoutSuccess: () {
+                            ShowSnackbar.showCheckTopSnackBar(context,
+                                text: 'Logout success',
+                                type: SnackBarType.success);
+                            Navigator.pushNamed(context, LoginScreen.routeName);
+                          },
+                          logoutError: () {
+                            ShowSnackbar.showCheckTopSnackBar(context,
+                                text: 'Logout unsuccessful',
+                                type: SnackBarType.error);
+                          },
+                        );
+                },
+                child: TOTIconButtonAtom.displayMedium(
+                  codePoint: 0xf199,
+                  onPressed: () {
+                    showDialog(
+                        context: context,
+                        builder: (_) {
+                          return TOTAlertDialogAtom(
+                            title: 'Logout',
+                            content: 'are you sure you want to logout',
+                            cancelText: 'Cancel',
+                            confirmText: 'yes',
+                            onCancel: () {
+                              Navigator.pop(context);
+                            },
+                            onConfirm: () {
+                              context
+                                  .read<AuthBloc>()
+                                  .add(const AuthEvent.logout());
+                            },
+                          );
+                        });
+                  },
+                  iconColor: Colors.black,
+                ),
               ),
             ],
           )),
