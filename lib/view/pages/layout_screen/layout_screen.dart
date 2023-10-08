@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/view/pages/cart/cart_screen.dart';
 import 'package:vendor_foody/view/pages/favorite/favorite_screen.dart';
@@ -50,6 +49,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
       body: screens[curIndex],
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: curIndex,
+          selectedItemColor: Colors.blue,
           onTap: (index) {
             curIndex = index;
             setState(() {});
