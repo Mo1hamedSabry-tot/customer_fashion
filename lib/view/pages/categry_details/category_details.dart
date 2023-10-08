@@ -104,8 +104,10 @@ class CategoryDetails extends StatelessWidget {
               );
             },
             notdata: (product) {
-              return const NoOrders(
-                text: 'No Product',
+              return const Center(
+                child: NoOrders(
+                  text: 'No Product',
+                ),
               );
             },
             loadSuccess: (product) {
