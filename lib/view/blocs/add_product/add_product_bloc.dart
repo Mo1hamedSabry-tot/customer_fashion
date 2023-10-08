@@ -11,6 +11,7 @@ class AddProductBloc extends Bloc<AddProductEvent, AddProductState> {
   static bool issucceeded = false;
    String? catalogId;
    String? categoreyId;
+   String? categoreyName;
   final AddProductRepository repository;
 
 

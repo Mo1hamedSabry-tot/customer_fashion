@@ -3214,29 +3214,17 @@ OrderItemRequest _$OrderItemRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$OrderItemRequest {
-  @JsonKey(name: 'status')
   String get status => throw _privateConstructorUsedError;
-  @JsonKey(name: 'status')
   set status(String value) => throw _privateConstructorUsedError;
-  @JsonKey(name: 'catalogId')
   String get catalogId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'catalogId')
   set catalogId(String value) => throw _privateConstructorUsedError;
-  @JsonKey(name: 'currency')
   String get currency => throw _privateConstructorUsedError;
-  @JsonKey(name: 'currency')
   set currency(String value) => throw _privateConstructorUsedError;
-  @JsonKey(name: 'name')
   String get name => throw _privateConstructorUsedError;
-  @JsonKey(name: 'name')
   set name(String value) => throw _privateConstructorUsedError;
-  @JsonKey(name: 'sku')
   String get sku => throw _privateConstructorUsedError;
-  @JsonKey(name: 'sku')
   set sku(String value) => throw _privateConstructorUsedError;
-  @JsonKey(name: 'productId')
   String get productId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'productId')
   set productId(String value) => throw _privateConstructorUsedError;
   bool get isSlected => throw _privateConstructorUsedError;
   set isSlected(bool value) => throw _privateConstructorUsedError;
@@ -3254,12 +3242,12 @@ abstract class $OrderItemRequestCopyWith<$Res> {
       _$OrderItemRequestCopyWithImpl<$Res, OrderItemRequest>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'status') String status,
-      @JsonKey(name: 'catalogId') String catalogId,
-      @JsonKey(name: 'currency') String currency,
-      @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'sku') String sku,
-      @JsonKey(name: 'productId') String productId,
+      {String status,
+      String catalogId,
+      String currency,
+      String name,
+      String sku,
+      String productId,
       bool isSlected});
 }
 
@@ -3326,12 +3314,12 @@ abstract class _$$_OrderItemRequestCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'status') String status,
-      @JsonKey(name: 'catalogId') String catalogId,
-      @JsonKey(name: 'currency') String currency,
-      @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'sku') String sku,
-      @JsonKey(name: 'productId') String productId,
+      {String status,
+      String catalogId,
+      String currency,
+      String name,
+      String sku,
+      String productId,
       bool isSlected});
 }
 
@@ -3391,34 +3379,28 @@ class __$$_OrderItemRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_OrderItemRequest implements _OrderItemRequest {
   _$_OrderItemRequest(
-      {@JsonKey(name: 'status') required this.status,
-      @JsonKey(name: 'catalogId') required this.catalogId,
-      @JsonKey(name: 'currency') required this.currency,
-      @JsonKey(name: 'name') required this.name,
-      @JsonKey(name: 'sku') required this.sku,
-      @JsonKey(name: 'productId') required this.productId,
+      {required this.status,
+      required this.catalogId,
+      required this.currency,
+      required this.name,
+      required this.sku,
+      required this.productId,
       this.isSlected = false});
 
   factory _$_OrderItemRequest.fromJson(Map<String, dynamic> json) =>
       _$$_OrderItemRequestFromJson(json);
 
   @override
-  @JsonKey(name: 'status')
   String status;
   @override
-  @JsonKey(name: 'catalogId')
   String catalogId;
   @override
-  @JsonKey(name: 'currency')
   String currency;
   @override
-  @JsonKey(name: 'name')
   String name;
   @override
-  @JsonKey(name: 'sku')
   String sku;
   @override
-  @JsonKey(name: 'productId')
   String productId;
   @override
   @JsonKey()
@@ -3445,46 +3427,34 @@ class _$_OrderItemRequest implements _OrderItemRequest {
 
 abstract class _OrderItemRequest implements OrderItemRequest {
   factory _OrderItemRequest(
-      {@JsonKey(name: 'status') required String status,
-      @JsonKey(name: 'catalogId') required String catalogId,
-      @JsonKey(name: 'currency') required String currency,
-      @JsonKey(name: 'name') required String name,
-      @JsonKey(name: 'sku') required String sku,
-      @JsonKey(name: 'productId') required String productId,
+      {required String status,
+      required String catalogId,
+      required String currency,
+      required String name,
+      required String sku,
+      required String productId,
       bool isSlected}) = _$_OrderItemRequest;
 
   factory _OrderItemRequest.fromJson(Map<String, dynamic> json) =
       _$_OrderItemRequest.fromJson;
 
   @override
-  @JsonKey(name: 'status')
   String get status;
-  @JsonKey(name: 'status')
   set status(String value);
   @override
-  @JsonKey(name: 'catalogId')
   String get catalogId;
-  @JsonKey(name: 'catalogId')
   set catalogId(String value);
   @override
-  @JsonKey(name: 'currency')
   String get currency;
-  @JsonKey(name: 'currency')
   set currency(String value);
   @override
-  @JsonKey(name: 'name')
   String get name;
-  @JsonKey(name: 'name')
   set name(String value);
   @override
-  @JsonKey(name: 'sku')
   String get sku;
-  @JsonKey(name: 'sku')
   set sku(String value);
   @override
-  @JsonKey(name: 'productId')
   String get productId;
-  @JsonKey(name: 'productId')
   set productId(String value);
   @override
   bool get isSlected;

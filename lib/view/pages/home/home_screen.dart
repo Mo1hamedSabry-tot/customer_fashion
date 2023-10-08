@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
+import 'package:vendor_foody/view/blocs/add_product/add_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/category/category_bloc.dart';
+import 'package:vendor_foody/view/blocs/get_product/get_product_bloc.dart';
 import 'package:vendor_foody/view/pages/cart/product_details.dart';
 import 'package:vendor_foody/view/pages/categry_details/category_details.dart';
 import 'package:vendor_foody/view/pages/home/widget/category_tab_bar_item.dart';
@@ -76,19 +78,31 @@ class HomeScreen extends StatelessWidget {
                           },
                         );
                       },
-                      loadSuccess: (catalog) {
+                      loadSuccess: (category) {
                         return ListView.builder(
-                            itemCount: catalog.items.length,
+                            itemCount: category.items.length,
                             scrollDirection: Axis.horizontal,
                             itemBuilder: (context, index) {
                               return CategoryItem(
                                 id: 1,
                                 onTab: () {
+                                  context.read<GetProductBloc>().add(
+                                      GetProductEvent.getProduct(
+                                          categoryId:
+                                              category.items[index].id));
                                   Navigator.pushNamed(
                                       context, CategoryDetails.routeName);
+                                  if (context.mounted) {
+                                    context.read<AddProductBloc>().catalogId =
+                                        category.items[index].catalogId;
+                                    context.read<AddProductBloc>().categoreyId =
+                                        category.items[index].id;
+                                    context.read<AddProductBloc>().categoreyName =
+                                        category.items[index].name;
+                                  }
                                 },
                                 isSelect: true,
-                                title: catalog.items[index].name,
+                                title: category.items[index].name,
                               );
                             });
                       },

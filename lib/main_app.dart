@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vendor_foody/view/pages/categry_details/category_details.dart';
 import 'package:vendor_foody/view/pages/layout_screen/layout_screen.dart';
 import 'package:vendor_foody/view/pages/login/login_screen.dart';
+import 'package:vendor_foody/core/utils/cache_helper.dart';
 
 import 'providers.dart';
 
@@ -20,7 +21,9 @@ class MainApp extends StatelessWidget {
           LoginScreen.routeName: (context) => const LoginScreen(),
           CategoryDetails.routeName: (context) => const CategoryDetails(),
         },
-        initialRoute: LoginScreen.routeName,
+        initialRoute: CacheHelper.get('access_token') != null
+          ? LayoutScreen.routeName
+          : LoginScreen.routeName,
       ),
     );
   }
