@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_remix/flutter_remix.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
+import 'package:vendor_foody/core/utils/cache_helper.dart';
 import 'package:vendor_foody/core/utils/show_snack_bar.dart';
 import 'package:vendor_foody/view/blocs/cart/cart_bloc.dart';
 import 'package:vendor_foody/view/pages/cart/cart_screen.dart';
@@ -41,8 +43,10 @@ class _LayoutScreenState extends State<LayoutScreen> {
           preferredSize: const Size.fromHeight(kToolbarHeight),
           child: TOTAppBarMolecule(
             backgroundColor: white,
+            elevation: 0,
             title: TOTTextAtom.headLineSmall(titleAppbar[curIndex],
                 color: fontColor),
+            centerTitle: true,
             automaticallyImplyLeading: false,
             actionWidgets: [
               BlocListener<AuthBloc, AuthState>(
@@ -50,6 +54,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
                   state.maybeWhen(
                     orElse: () {},
                     logoutSuccess: () {
+                      CacheHelper.remove('access_token');
                       ShowSnackbar.showCheckTopSnackBar(context,
                           text: 'Logout success', type: SnackBarType.success);
                       Navigator.pushNamed(context, LoginScreen.routeName);
@@ -91,7 +96,14 @@ class _LayoutScreenState extends State<LayoutScreen> {
       body: screens[curIndex],
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: curIndex,
-          selectedItemColor: Colors.blue,
+          backgroundColor: Colors.black,
+          selectedItemColor: const Color(0xFFff8900),
+          selectedIconTheme:
+              const IconThemeData(color: Color(0xFFff8900), size: 35),
+          unselectedItemColor: Colors.black,
+          // unselectedIconTheme: const IconThemeData(
+          //   color: Colors.red,
+          // ),
           onTap: (index) {
             curIndex = index;
             setState(() {});
@@ -101,16 +113,20 @@ class _LayoutScreenState extends State<LayoutScreen> {
           },
           items: const [
             BottomNavigationBarItem(
-                icon: TOTIconAtom.displayLarge(codePoint: 0xf107),
+                icon: Icon(FlutterRemix
+                    .home_8_fill), //TOTIconAtom.displayLarge(codePoint: 0xf107),
                 label: 'Home'),
             BottomNavigationBarItem(
-                icon: TOTIconAtom.displayLarge(codePoint: 0xf04a),
+                icon: Icon(FlutterRemix
+                    .hearts_line), //TOTIconAtom.displayLarge(codePoint: 0xf04a),
                 label: 'Favorite'),
             BottomNavigationBarItem(
-                icon: TOTIconAtom.displayLarge(codePoint: 0xe05a),
+                icon: Icon(Icons
+                    .card_travel_outlined), //TOTIconAtom.displayLarge(codePoint: 0xe05a),
                 label: 'Cart'),
             BottomNavigationBarItem(
-                icon: TOTIconAtom.displayLarge(codePoint: 0xf08ae),
+                icon: Icon(Icons
+                    .person_2_outlined), //OTIconAtom.displayLarge(codePoint: 0xf08ae),
                 label: 'Profile'),
           ]),
     );

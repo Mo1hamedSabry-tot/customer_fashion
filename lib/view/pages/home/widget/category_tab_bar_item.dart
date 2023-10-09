@@ -20,17 +20,18 @@ class CategoryItem extends StatelessWidget {
       onTap: onTab,
       child: Container(
         decoration: BoxDecoration(
-          color: isSelect ? AppColors.greenColor : AppColors.white,
+          color: isSelect ? AppColors.blackColor : AppColors.white,
           borderRadius: BorderRadius.circular(100),
         ),
         margin: const EdgeInsets.symmetric(horizontal: 5),
         padding: const EdgeInsets.symmetric(horizontal: 10),
         constraints: const BoxConstraints(maxWidth: 100, minWidth: 50),
         height: 50,
-        width: MediaQuery.sizeOf(context).height*0.1,
+        width: MediaQuery.sizeOf(context).height * 0.1,
         child: Center(
           child: Text(
             title,
+            style: const TextStyle(color: AppColors.white),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),

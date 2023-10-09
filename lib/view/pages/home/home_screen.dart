@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/view/blocs/add_product/add_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/category/category_bloc.dart';
@@ -121,9 +120,12 @@ class HomeScreen extends StatelessWidget {
               children: [
                 const Padding(
                   padding: EdgeInsets.all(8.0),
-                  child: TOTTextAtom.bodyLarge(
+                  child: Text(
                     'AllProduct',
-                    color: Colors.grey,
+                    style: TextStyle(
+                        color: Color.fromARGB(255, 108, 107, 107),
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
                 SizedBox(
@@ -373,9 +375,12 @@ class HomeScreen extends StatelessWidget {
               children: [
                 const Padding(
                   padding: EdgeInsets.all(8.0),
-                  child: TOTTextAtom.bodyLarge(
+                  child: Text(
                     'AllProduct',
-                    color: Colors.grey,
+                    style: TextStyle(
+                        color: Color.fromARGB(255, 108, 107, 107),
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
                 SizedBox(
