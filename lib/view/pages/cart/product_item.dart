@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
 
+import '../../../data/models/response/cart_model.dart';
+
 class ProductItem extends StatelessWidget {
   final VoidCallback onTap;
-  // final CustomerOrderResult orderModel;
+  final ShoppingCartItem cartModel;
   const ProductItem({
     super.key,
     required this.onTap,
+    required this.cartModel,
     // required this.orderModel
   });
 
@@ -24,52 +27,86 @@ class ProductItem extends StatelessWidget {
           width: double.infinity,
           decoration: BoxDecoration(
               color: AppColors.white, borderRadius: BorderRadius.circular(20)),
-          child: const Column(
-            mainAxisSize: MainAxisSize.min,
+          child: Row(
             children: [
-              Row(
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
-                    height: 65,
-                    child: TOTAvatarAtom.network(
-                      // "orderModel.imageUrl ??"
-                      'https://as2.ftcdn.net/v2/jpg/01/89/76/29/1000_F_189762980_jJCtXX3tM0rMEsGAB0MU0nMBYM5dZU89.jpg',
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Column(
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisSize: MainAxisSize.max,
                     children: [
-                      TOTTextAtom.bodyLarge('gfdgdf'
-                          // orderModel.customerName ?? 'not found',
-                          ),
                       SizedBox(
-                        height: 3,
+                        height: 65,
+                        child: TOTAvatarAtom.network(
+                          cartModel.imageUrl ??
+                              'https://as2.ftcdn.net/v2/jpg/01/89/76/29/1000_F_189762980_jJCtXX3tM0rMEsGAB0MU0nMBYM5dZU89.jpg',
+                        ),
                       ),
-                      TOTTextAtom.bodyLarge('ksdhjfkl'
-                          // orderModel.objectType!.substring(0, 7),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Column(
+                        children: [
+                          TOTTextAtom.bodyLarge(cartModel.name ?? 'not found'),
+                          const SizedBox(
+                            height: 3,
                           ),
+                          TOTTextAtom.bodyLarge(
+                            cartModel.objectType!.substring(0, 7),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                  const Divider(
+                    color: Color(0xFFf4f5f8),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      TOTTextAtom.bodyLarge(cartModel.salePrice.toString()),
+                      const SizedBox(
+                        width: 100,
+                      ),
+                      TOTTextAtom.bodyLarge(cartModel.salePrice.toString()),
                     ],
                   )
                 ],
               ),
-              Divider(
-                color: Color(0xFFf4f5f8),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  TOTTextAtom.bodyLarge('fgdsgdsgdfsg'
-                      // orderModel.id.toString().substring(0, 7),
+              const Spacer(),
+              Container(
+                width: MediaQuery.sizeOf(context).width * 0.1,
+                height: MediaQuery.sizeOf(context).height * 0.13,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.blueAccent,
+                ),
+                child: Column(
+                  children: [
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.add,
+                        color: AppColors.white,
                       ),
-                  TOTTextAtom.bodyLarge('fgdsgdsgdfsg'
-                      // orderModel.status.toString(),
+                    ),
+                    const Spacer(),
+                    const Text(
+                      '0',
+                      style: TextStyle(color: AppColors.white),
+                    ),
+                    const Spacer(),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.remove,
+                        color: AppColors.white,
                       ),
-                  TOTTextAtom.bodyLarge('fgdsgdsgdfsg')
-                  //  '${orderModel.sum.toString()}\$',
-                  // ),
-                ],
+                    )
+                  ],
+                ),
               )
             ],
           ),

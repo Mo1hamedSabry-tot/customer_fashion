@@ -39,32 +39,41 @@ class ProductCard extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        title,
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
+              Row(
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            title,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                          Text(
+                            '\$$price',
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.green,
+                            ),
+                          ),
+                        ],
                       ),
-                      const SizedBox(height: 10),
-                      Text(
-                        '\$$price',
-                        style: const TextStyle(
-                          fontSize: 14,
-                          color: Colors.green,
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
-                ),
+                  const Spacer(),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 20, right: 20),
+                    child: Icon(Icons.favorite_border_outlined),
+                  )
+                ],
               ),
             ],
           ),

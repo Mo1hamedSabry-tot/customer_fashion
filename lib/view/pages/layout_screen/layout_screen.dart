@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/core/utils/show_snack_bar.dart';
+import 'package:vendor_foody/view/blocs/cart/cart_bloc.dart';
 import 'package:vendor_foody/view/pages/cart/cart_screen.dart';
 import 'package:vendor_foody/view/pages/favorite/favorite_screen.dart';
 import 'package:vendor_foody/view/pages/home/home_screen.dart';
@@ -46,20 +47,19 @@ class _LayoutScreenState extends State<LayoutScreen> {
             actionWidgets: [
               BlocListener<AuthBloc, AuthState>(
                 listener: (context, state) {
-                 state.maybeWhen(
-                          orElse: () {},
-                          logoutSuccess: () {
-                            ShowSnackbar.showCheckTopSnackBar(context,
-                                text: 'Logout success',
-                                type: SnackBarType.success);
-                            Navigator.pushNamed(context, LoginScreen.routeName);
-                          },
-                          logoutError: () {
-                            ShowSnackbar.showCheckTopSnackBar(context,
-                                text: 'Logout unsuccessful',
-                                type: SnackBarType.error);
-                          },
-                        );
+                  state.maybeWhen(
+                    orElse: () {},
+                    logoutSuccess: () {
+                      ShowSnackbar.showCheckTopSnackBar(context,
+                          text: 'Logout success', type: SnackBarType.success);
+                      Navigator.pushNamed(context, LoginScreen.routeName);
+                    },
+                    logoutError: () {
+                      ShowSnackbar.showCheckTopSnackBar(context,
+                          text: 'Logout unsuccessful',
+                          type: SnackBarType.error);
+                    },
+                  );
                 },
                 child: TOTIconButtonAtom.displayMedium(
                   codePoint: 0xf199,
@@ -95,6 +95,9 @@ class _LayoutScreenState extends State<LayoutScreen> {
           onTap: (index) {
             curIndex = index;
             setState(() {});
+            if (curIndex == 2) {
+              context.read<CartBloc>().add(const CartEvent.getCart());
+            }
           },
           items: const [
             BottomNavigationBarItem(

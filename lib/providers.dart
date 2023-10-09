@@ -4,6 +4,7 @@ import 'package:vendor_foody/core/di/injection_container.dart';
 import 'package:vendor_foody/view/blocs/add_product/add_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/app/app_bloc.dart';
 import 'package:vendor_foody/view/blocs/auth/auth_bloc.dart';
+import 'package:vendor_foody/view/blocs/cart/cart_bloc.dart';
 import 'package:vendor_foody/view/blocs/category/category_bloc.dart';
 import 'package:vendor_foody/view/blocs/edit_product/edit_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/get_product/get_product_bloc.dart';
@@ -33,4 +34,5 @@ List<SingleChildWidget> providers = [
       create: (context) =>
           sl<CategoryBloc>()..add(const CategoryEvent.getCategory())),
   BlocProvider(create: (context) => AppBloc()),
+  BlocProvider(create: (context) => sl<CartBloc>()),
 ];

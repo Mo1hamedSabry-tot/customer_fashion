@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:vendor_foody/data/repository/add_product_repo.dart';
+import 'package:vendor_foody/data/repository/cart_repo.dart';
 import 'package:vendor_foody/data/repository/category_repo.dart';
 import 'package:vendor_foody/data/repository/get_product_repo.dart';
 import 'package:vendor_foody/data/repository/login_repo.dart';
@@ -8,6 +9,7 @@ import 'package:vendor_foody/data/repository/product_repo.dart';
 import 'package:vendor_foody/data/repository/token_repository.dart';
 import 'package:vendor_foody/view/blocs/add_product/add_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/auth/auth_bloc.dart';
+import 'package:vendor_foody/view/blocs/cart/cart_bloc.dart';
 import 'package:vendor_foody/view/blocs/category/category_bloc.dart';
 import 'package:vendor_foody/view/blocs/edit_product/edit_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/get_product/get_product_bloc.dart';
@@ -26,6 +28,7 @@ Future<void> init() async {
   sl.registerSingleton<AddProductRepository>(AddProductRepository());
   sl.registerSingleton<ProductsRepository>(ProductsRepository());
   sl.registerSingleton<GetCategoryRepository>(GetCategoryRepository());
+  sl.registerSingleton<CartRepository>(CartRepository());
 
   //? bloc
   sl.registerFactory<HomeCubit>(() => HomeCubit(repo: sl()));
@@ -43,4 +46,5 @@ Future<void> init() async {
   sl.registerFactory<CategoryBloc>(() => CategoryBloc(
         repository: sl(),
       ));
+  sl.registerFactory<CartBloc>(() => CartBloc(repository: sl()));
 }

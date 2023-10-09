@@ -21,7 +21,7 @@ class GetCategoryRepository {
         data?.items[0].isSelected == true;
       });
     } catch (e) {
-      log('catchhhhhhhhhhhhhh ${e.toString()}');
+      log('catchhhhhhhhhhhhhh in getCategoryRepo ${e.toString()}');
     }
     return data!;
   }

@@ -9,7 +9,7 @@ import 'package:vendor_foody/view/blocs/get_product/get_product_bloc.dart';
 import 'package:vendor_foody/view/pages/cart/product_details.dart';
 import 'package:vendor_foody/view/pages/categry_details/category_details.dart';
 import 'package:vendor_foody/view/pages/home/widget/category_tab_bar_item.dart';
-import 'package:vendor_foody/view/pages/home/widget/panar_widget.dart';
+import 'package:vendor_foody/view/pages/home/widget/panar_item.dart';
 
 import 'widget/card_item.dart';
 
@@ -30,8 +30,10 @@ class HomeScreen extends StatelessWidget {
                     itemCount: 10,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      return const ReusablePanar(
-                        imagePath:
+                      return const BannerItem(
+                        discount: '15',
+                        incentiveTitle: 'titile',
+                        imgUrl:
                             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFRjTgHeskTbRIW2pjP60M2WZJU8zFXozfOS-pW2SbHAVBW-7UcM5fX3WWd4LUhZOSC90&usqp=CAU',
                       );
                     }),
