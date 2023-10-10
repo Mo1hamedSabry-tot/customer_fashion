@@ -16,6 +16,7 @@ abstract class Endpoint {
   static const updateOrderEndPoint = "api/order/customerOrders";
   static const listEntriesEndPoint = "api/catalog/listentries"; //!updateOrder
   static const searchCartEndPoint = "api/carts/search"; //!cart
+  static const addItemToCartEndPoint = "api/carts/4c902de9-869e-411b-80fb-7bdb672e6da2/items";
 
 }
 ///api/platform/security/logout

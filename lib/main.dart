@@ -13,5 +13,6 @@ void main() async {
   await CacheHelper.init();
   await DioHelper.init();
   Bloc.observer = MyBlocObserver();
+
   runApp(const MainApp());
 }

@@ -99,9 +99,9 @@ class ProductItem extends StatelessWidget {
                       ),
                     ),
                     const Spacer(),
-                    const Text(
-                      '0',
-                      style: TextStyle(color: AppColors.white),
+                    Text(
+                      cartModel.quantity.toString(),
+                      style: const TextStyle(color: AppColors.white),
                     ),
                     const Spacer(),
                     IconButton(
