@@ -16,7 +16,7 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
       await event.map(getCategory: (v) async {
         emit(const _LoadInProgress());
         final CategoryModel data = await repository.getCategory();
-        data.items[0].isSelected = true;
+        // data.items[0].isSelected = true;
         emit(_LoadSuccess(data));
       });
     });

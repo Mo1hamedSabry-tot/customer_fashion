@@ -8,7 +8,6 @@ import 'package:vendor_foody/view/blocs/add_product/add_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/cart/cart_bloc.dart';
 import 'package:vendor_foody/view/blocs/category/category_bloc.dart';
 import 'package:vendor_foody/view/blocs/get_product/get_product_bloc.dart';
-import 'package:vendor_foody/view/pages/cart/product_details.dart';
 import 'package:vendor_foody/view/pages/categry_details/category_details.dart';
 import 'package:vendor_foody/view/pages/home/widget/category_tab_bar_item.dart';
 import 'package:vendor_foody/view/pages/home/widget/panar_item.dart';
@@ -236,25 +235,8 @@ class HomeScreen extends StatelessWidget {
                                   showBottomSheet(
                                     context: context,
                                     builder: (BuildContext context) {
-                                      return Container(
-                                        height: 200,
-                                        width: double.infinity,
-                                        color: Colors.amber,
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            ProductDetails(
-                                              imageUrl: product.results![index]
-                                                      .imageUrl ??
-                                                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFRjTgHeskTbRIW2pjP60M2WZJU8zFXozfOS-pW2SbHAVBW-7UcM5fX3WWd4LUhZOSC90&usqp=CAU',
-                                              price: product.results![index].id
-                                                  .toString(),
-                                              productName:
-                                                  product.results![index].name!,
-                                            )
-                                          ],
-                                        ),
-                                      );
+                                      return _MyBottomSheet(
+                                          model: product.results![index]);
                                     },
                                   );
                                 },
@@ -357,7 +339,8 @@ class _MyBottomSheet extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(20.0),
                         child: Image.network(
-                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEL-KFPtuGQEgO105UB_6JQBoWMZ6iD-N4rr5LcLlEh0XxXqgGKIOJAkvL4RpAHG_Mukk&usqp=CAU', // URL of the image
+                          model.imageUrl ??
+                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEL-KFPtuGQEgO105UB_6JQBoWMZ6iD-N4rr5LcLlEh0XxXqgGKIOJAkvL4RpAHG_Mukk&usqp=CAU', // URL of the image
                           width: MediaQuery.sizeOf(context).width * 0.3,
                           height: 150.0,
                           fit: BoxFit.cover,
@@ -412,8 +395,7 @@ class _MyBottomSheet extends StatelessWidget {
                     builder: (context, state) {
                       return state.maybeWhen(
                         orElse: () {
-                          return 
-                           TextButton(
+                          return TextButton(
                             onPressed: () {
                               context.read<CartBloc>().add(
                                     CartEvent.addToCart(

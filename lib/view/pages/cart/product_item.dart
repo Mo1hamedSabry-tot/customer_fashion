@@ -26,8 +26,7 @@ class ProductItem extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.15,
           width: double.infinity,
           decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 113, 111, 110),
-              borderRadius: BorderRadius.circular(20)),
+              color: Colors.white, borderRadius: BorderRadius.circular(20)),
           child: Row(
             children: [
               Column(
@@ -64,7 +63,8 @@ class ProductItem extends StatelessWidget {
                     ],
                   ),
                   const Divider(
-                    color: Color(0xFFf4f5f8),
+                    color: Colors.black,
+                    thickness: 2,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -87,7 +87,7 @@ class ProductItem extends StatelessWidget {
                 height: MediaQuery.sizeOf(context).height * 0.13,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Colors.blueAccent,
+                  color: Colors.black,
                 ),
                 child: Column(
                   children: [

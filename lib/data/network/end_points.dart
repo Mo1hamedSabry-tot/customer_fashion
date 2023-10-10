@@ -1,5 +1,5 @@
 abstract class Endpoint {
-  static const baseUrl = 'http://20.163.148.155:8080/';
+  static const baseUrl = 'http://20.163.148.155:9070/';
 
   static const loginEndPoint = 'api/platform/security/login';
   static const logoutEndPoint = 'api/platform/security/logout';
@@ -16,7 +16,7 @@ abstract class Endpoint {
   static const updateOrderEndPoint = "api/order/customerOrders";
   static const listEntriesEndPoint = "api/catalog/listentries"; //!updateOrder
   static const searchCartEndPoint = "api/carts/search"; //!cart
-  static const addItemToCartEndPoint = "api/carts/4c902de9-869e-411b-80fb-7bdb672e6da2/items";
+  static const addItemToCartEndPoint = "api/carts/5ea8ae63-4ec4-4776-a564-276e68576ccf/items";
 
 }
 ///api/platform/security/logout

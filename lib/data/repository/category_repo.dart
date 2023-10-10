@@ -13,12 +13,12 @@ class GetCategoryRepository {
           url:Endpoint.getCategoryEndPoint ,
           token: CacheHelper.get('access_token'),
           data: {
-            "catalogId": "f5790b39-4fc8-4aad-8318-259d28595f05",
+            "catalogId": "0a841b7e-c732-4738-913d-9e43c054170e",
             "skip": 0,
             "take": 100
           }).then((value) {
         data = CategoryModel.fromJson(value.data);
-        data?.items[0].isSelected == true;
+        // data?.items[0].isSelected == true;
       });
     } catch (e) {
       log('catchhhhhhhhhhhhhh in getCategoryRepo ${e.toString()}');
