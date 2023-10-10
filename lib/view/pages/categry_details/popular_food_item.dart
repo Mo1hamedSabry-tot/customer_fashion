@@ -93,7 +93,7 @@ class PopularFoodItem extends StatelessWidget {
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: AppColors.orangeColor),
+                      color: AppColors.blackColor),
                   child: const TOTIconWithTextMolecule(
                       codePoint: 0xe03a,
                       text: 'pending',

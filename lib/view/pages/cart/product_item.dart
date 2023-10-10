@@ -26,7 +26,7 @@ class ProductItem extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.15,
           width: double.infinity,
           decoration: BoxDecoration(
-              color: AppColors.white, borderRadius: BorderRadius.circular(20)),
+              color: Colors.white, borderRadius: BorderRadius.circular(20)),
           child: Row(
             children: [
               Column(
@@ -35,23 +35,25 @@ class ProductItem extends StatelessWidget {
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    mainAxisSize: MainAxisSize.max,
                     children: [
-                      SizedBox(
-                        height: 65,
-                        child: TOTAvatarAtom.network(
-                          cartModel.imageUrl ??
-                              'https://as2.ftcdn.net/v2/jpg/01/89/76/29/1000_F_189762980_jJCtXX3tM0rMEsGAB0MU0nMBYM5dZU89.jpg',
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: SizedBox(
+                          height: MediaQuery.sizeOf(context).height * 0.09,
+                          child: Image.network(
+                            cartModel.imageUrl ??
+                                'https://as2.ftcdn.net/v2/jpg/01/89/76/29/1000_F_189762980_jJCtXX3tM0rMEsGAB0MU0nMBYM5dZU89.jpg',
+                          ),
                         ),
                       ),
-                      const SizedBox(
-                        width: 10,
+                      SizedBox(
+                        width: MediaQuery.sizeOf(context).width * 0.08,
                       ),
                       Column(
                         children: [
                           TOTTextAtom.bodyLarge(cartModel.name ?? 'not found'),
                           const SizedBox(
-                            height: 3,
+                            height: 10,
                           ),
                           TOTTextAtom.bodyLarge(
                             cartModel.objectType!.substring(0, 7),
@@ -61,11 +63,15 @@ class ProductItem extends StatelessWidget {
                     ],
                   ),
                   const Divider(
-                    color: Color(0xFFf4f5f8),
+                    color: Colors.black,
+                    thickness: 2,
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      const SizedBox(
+                        width: 100,
+                      ),
                       TOTTextAtom.bodyLarge(cartModel.salePrice.toString()),
                       const SizedBox(
                         width: 100,
@@ -81,7 +87,7 @@ class ProductItem extends StatelessWidget {
                 height: MediaQuery.sizeOf(context).height * 0.13,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Colors.blueAccent,
+                  color: Colors.black,
                 ),
                 child: Column(
                   children: [
@@ -93,9 +99,9 @@ class ProductItem extends StatelessWidget {
                       ),
                     ),
                     const Spacer(),
-                    const Text(
-                      '0',
-                      style: TextStyle(color: AppColors.white),
+                    Text(
+                      cartModel.quantity.toString(),
+                      style: const TextStyle(color: AppColors.white),
                     ),
                     const Spacer(),
                     IconButton(

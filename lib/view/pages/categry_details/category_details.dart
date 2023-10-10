@@ -26,6 +26,7 @@ class CategoryDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: AppColors.blackColor,
         title: Text(context.read<AddProductBloc>().categoreyName!),
       ),
       body: BlocBuilder<GetProductBloc, GetProductState>(
