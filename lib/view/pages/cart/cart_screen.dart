@@ -46,14 +46,39 @@ class CartScreen extends StatelessWidget {
             );
           },
           success: (model) {
-            return ListView.builder(
-                itemCount: model.results![0].items!.length,
-                itemBuilder: (context, index) {
-                  return ProductItem(
-                    onTap: () {},
-                    cartModel: model.results![0].items![index],
-                  );
-                });
+            return Column(
+              children: [
+                SizedBox(
+                  height: MediaQuery.sizeOf(context).height * 0.7,
+                  child: ListView.builder(
+                      itemCount: model.results![0].items!.length,
+                      itemBuilder: (context, index) {
+                        return ProductItem(
+                          onTap: () {},
+                          cartItemModel: model.results![0].items![index],
+                        );
+                      }),
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF2160ac),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
+                    minimumSize:
+                        Size(MediaQuery.sizeOf(context).width * 0.9, 48.0),
+                  ),
+                  onPressed: () {},
+                  child: TextButton(
+                    child: const Text(
+                      'Check out',
+                      style: TextStyle(fontSize: 20, color: AppColors.white),
+                    ),
+                    onPressed: () {},
+                  ),
+                )
+              ],
+            );
           },
         );
       },

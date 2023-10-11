@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shimmer/shimmer.dart';
@@ -9,11 +11,11 @@ import 'package:vendor_foody/view/blocs/cart/cart_bloc.dart';
 import 'package:vendor_foody/view/blocs/category/category_bloc.dart';
 import 'package:vendor_foody/view/blocs/get_product/get_product_bloc.dart';
 import 'package:vendor_foody/view/pages/categry_details/category_details.dart';
-import 'package:vendor_foody/view/pages/home/widget/category_tab_bar_item.dart';
-import 'package:vendor_foody/view/pages/home/widget/panar_item.dart';
+import 'package:vendor_foody/view/pages/home/widget/category_tem.dart';
+import 'package:vendor_foody/view/pages/home/widget/home_slider.dart';
 
 import '../../../core/custom/shimer_list_view.dart';
-import 'widget/card_item.dart';
+import 'widget/product_card.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -24,22 +26,8 @@ class HomeScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
-              height: MediaQuery.sizeOf(context).height * 0.32,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ListView.builder(
-                    itemCount: 10,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      return const BannerItem(
-                        discount: '15',
-                        incentiveTitle: 'titile',
-                        imgUrl:
-                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFRjTgHeskTbRIW2pjP60M2WZJU8zFXozfOS-pW2SbHAVBW-7UcM5fX3WWd4LUhZOSC90&usqp=CAU',
-                      );
-                    }),
-              ),
+            const HomeSlider(
+              products: [1, 0, 0],
             ),
             SizedBox(
               height: MediaQuery.sizeOf(context).height * 0.1,
@@ -91,24 +79,30 @@ class HomeScreen extends StatelessWidget {
                               return CategoryItem(
                                 id: 1,
                                 onTab: () {
+                                  log('44444444444444${category.items[index].id}');
+                                  log('44444444444444${category.items[index].catalogId}');
+                                  context.read<AddProductBloc>().categoreyName =
+                                      category.items[index].name;
+                                  // context.read<AddProductBloc>().catalogId =
+                                  //     category.items[index].catalogId;
+                                  // context.read<AddProductBloc>().categoreyId =
+                                  //     category.items[index].id;
+
                                   context.read<GetProductBloc>().add(
                                       GetProductEvent.getProduct(
                                           categoryId:
                                               category.items[index].id));
                                   Navigator.pushNamed(
-                                      context, CategoryDetails.routeName);
-                                  if (context.mounted) {
-                                    context.read<AddProductBloc>().catalogId =
-                                        category.items[index].catalogId;
-                                    context.read<AddProductBloc>().categoreyId =
-                                        category.items[index].id;
-                                    context
-                                            .read<AddProductBloc>()
-                                            .categoreyName =
-                                        category.items[index].name;
-                                  }
+                                      context, CategoryDetails.routeName,
+                                      arguments: category.items[index].name);
+                                  // if (context.mounted) {
+
+                                  //   context
+                                  //           .read<AddProductBloc>()
+                                  //           .categoreyName =
+                                  //       category.items[index].name;
+                                  // }
                                 },
-                                isSelect: true,
                                 title: category.items[index].name,
                               );
                             });
@@ -152,7 +146,7 @@ class HomeScreen extends StatelessWidget {
                                   showBottomSheet(
                                     context: context,
                                     builder: (BuildContext context) {
-                                      return _MyBottomSheet(
+                                      return MyBottomSheet(
                                           model: product.results![index]);
                                     },
                                   );
@@ -235,7 +229,7 @@ class HomeScreen extends StatelessWidget {
                                   showBottomSheet(
                                     context: context,
                                     builder: (BuildContext context) {
-                                      return _MyBottomSheet(
+                                      return MyBottomSheet(
                                           model: product.results![index]);
                                     },
                                   );
@@ -261,9 +255,9 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class _MyBottomSheet extends StatelessWidget {
+class MyBottomSheet extends StatelessWidget {
   final Result model;
-  const _MyBottomSheet({required this.model});
+  const MyBottomSheet({super.key, required this.model});
 
   @override
   Widget build(BuildContext context) {

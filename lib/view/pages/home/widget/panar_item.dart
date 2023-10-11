@@ -19,88 +19,44 @@ class BannerItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(right: 6),
-      width: MediaQuery.sizeOf(context).width - 20,
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(
-          Radius.circular(20),
-        ),
-      ),
-      child: ClipRRect(
-        borderRadius: const BorderRadius.all(
-          Radius.circular(14),
-        ),
-        child: CachedNetworkImage(
-          width: double.infinity,
-          imageUrl: imgUrl,
-          fit: BoxFit.fill,
-          imageBuilder: (context, imageProvider) {
-            return Stack(
-              children: [
-                ShaderMask(
-                  blendMode: BlendMode.modulate,
-                  shaderCallback: (bounds) {
-                    return const LinearGradient(colors: [
-                      Color.fromARGB(255, 41, 40, 40),
-                      Color.fromARGB(255, 158, 171, 219)
-                    ]).createShader(bounds);
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: imageProvider,
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                  ),
+    return Align(
+      alignment: Alignment.topCenter,
+      child: Padding(
+        padding: const EdgeInsets.all(5.0),
+        child: ClipRRect(
+          borderRadius: const BorderRadius.all(
+            Radius.circular(14),
+          ),
+          child: CachedNetworkImage(
+            width: MediaQuery.sizeOf(context).width,
+            height: 150,
+            imageUrl: imgUrl,
+            fit: BoxFit.cover,
+            progressIndicatorBuilder: (context, url, progress) {
+              return Container(
+                height: double.infinity,
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  color: AppColors.shimmerBase,
                 ),
-                Padding(
-                  padding: const EdgeInsetsDirectional.only(start: 8.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        incentiveTitle,
-                        style: const TextStyle(
-                            fontSize: 10, color: AppColors.white),
-                      ),
-                      SizedBox(
-                        width: 60,
-                        child: Text(
-                          discount,
-                          style: const TextStyle(
-                              fontSize: 16, color: AppColors.white),
-                        ),
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            );
-          },
-          progressIndicatorBuilder: (context, url, progress) {
-            return Container(
-              height: double.infinity,
-              width: double.infinity,
-              decoration: const BoxDecoration(
-                color: AppColors.shimmerBase,
-              ),
-            );
-          },
-          errorWidget: (context, url, error) {
-            return Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.r),
-                color: Colors.white,
-              ),
-              alignment: Alignment.center,
-              child: const SizedBox.shrink(),
-            );
-          },
+              );
+            },
+            errorWidget: (context, url, error) {
+              return Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.r),
+                  color: Colors.white,
+                ),
+                alignment: Alignment.center,
+                child: const SizedBox.shrink(),
+              );
+            },
+          ),
         ),
       ),
     );
   }
 }
+
+
+

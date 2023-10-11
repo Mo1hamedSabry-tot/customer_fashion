@@ -40,14 +40,10 @@ class _LayoutScreenState extends State<LayoutScreen> {
     ];
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: black,
-          shape: const ContinuousRectangleBorder(
-            borderRadius: BorderRadius.vertical(
-              bottom: Radius.circular(100),
-            ),
-          ),
-          elevation: 0,
-          title: TOTTextAtom.headLineSmall(titleAppbar[curIndex], color: white),
+          backgroundColor: Colors.transparent,
+          
+          elevation: 0.0,
+          title: TOTTextAtom.headLineSmall(titleAppbar[curIndex], color: black),
           centerTitle: true,
           automaticallyImplyLeading: false,
           actions: [
@@ -89,28 +85,30 @@ class _LayoutScreenState extends State<LayoutScreen> {
                         );
                       });
                 },
-                iconColor: Colors.white,
+                iconColor: Colors.black,
               ),
             ),
           ]),
       body: screens[curIndex],
-      bottomNavigationBar: ClipRRect(
-        borderRadius: const BorderRadius.only(
-          topLeft:
-              Radius.circular(40.0), // Adjust this value for the left corner
-          topRight:
-              Radius.circular(40.0), // Adjust this value for the right corner
-        ),
+      bottomNavigationBar: Container(
+        decoration: const BoxDecoration(
+            border: Border(
+          top: BorderSide(
+            color: Colors.grey, // Set the outline color
+            width: 1.0,
+          ), // Set the outline width
+        )),
         child: BottomNavigationBar(
+            elevation: 3,
             currentIndex: curIndex,
-            backgroundColor: Colors.grey,
+            backgroundColor: Colors.white,
             type: BottomNavigationBarType.fixed,
             selectedItemColor: const Color(0xFFff8900),
             selectedIconTheme:
                 const IconThemeData(color: Color(0xFFff8900), size: 35),
-            unselectedItemColor: Colors.white,
-            // unselectedIconTheme: const IconThemeData(
-            //   color: Colors.red,
+            unselectedItemColor: Colors.black,
+
+            //
             // ),
             onTap: (index) {
               curIndex = index;

@@ -14,20 +14,38 @@ import '../../../core/custom/custom_text_form.dart';
 import '../../../core/custom/custom_toggle.dart';
 import '../../../data/models/response/list_entires_product_model.dart';
 import '../../blocs/get_product/get_product_bloc.dart';
+import '../home/home_screen.dart';
 import '../home/no_orders.dart';
 import 'popular_food_item.dart';
 
-class CategoryDetails extends StatelessWidget {
+class CategoryDetails extends StatefulWidget {
   static const String routeName = 'CategoryDetails';
 
   const CategoryDetails({super.key});
 
   @override
+  State<CategoryDetails> createState() => _CategoryDetailsState();
+
+  void fetchProduct() {}
+}
+
+class _CategoryDetailsState extends State<CategoryDetails> {
+  @override
   Widget build(BuildContext context) {
+    // context.read<GetProductBloc>().add(
+    //     GetProductEvent.getProduct(categoryId: AddProductBloc.categoreyId));
+
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppColors.blackColor,
-        title: Text(context.read<AddProductBloc>().categoreyName!),
+        elevation: 0,
+        automaticallyImplyLeading: false,
+        iconTheme: const IconThemeData(color: Colors.black),
+        backgroundColor: AppColors.white,
+        centerTitle: true,
+        title: Text(
+          context.read<AddProductBloc>().categoreyName ?? "",
+          style: const TextStyle(color: AppColors.blackColor),
+        ),
       ),
       body: BlocBuilder<GetProductBloc, GetProductState>(
         builder: (context, state) {
@@ -123,25 +141,33 @@ class CategoryDetails extends StatelessWidget {
                         child: InkWell(
                           onTap: () {
                             log("name of index: ${product.results![index].name.toString()}");
-                            showModalBottomSheet(
-                                context: context,
-                                isDismissible: true,
-                                isScrollControlled: true,
-                                shape: const RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.vertical(
-                                        top: Radius.circular(22))),
-                                builder: (_) {
-                                  return _FoodBottomSheet(
-                                    categoryId: context
-                                            .read<AddProductBloc>()
-                                            .categoreyId ??
-                                        '5bd41b52-d041-4f82-95e3-f29cf1dfe2d1',
-                                    model: product.results![index],
-                                    title: product.results![index].name!,
-                                    code: product.results![index].code!,
-                                    selectedUnitId: 2,
-                                  );
-                                });
+                            showBottomSheet(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return MyBottomSheet(
+                                    model: product.results![index]);
+                              },
+                            );
+                            // showModalBottomSheet(
+                            // context: context,
+                            // isDismissible: true,
+                            // isScrollControlled: true,
+                            // shape: const RoundedRectangleBorder(
+                            //     borderRadius: BorderRadius.vertical(
+                            //         top: Radius.circular(22))),
+                            // builder: (_) {
+                            //   return _FoodBottomSheet(
+                            //     categoryId: context
+                            //             .read<AddProductBloc>()
+                            //             .categoreyId ??
+                            //         '5bd41b52-d041-4f82-95e3-f29cf1dfe2d1',
+                            //     model: product.results![index],
+                            //     title: product.results![index].name!,
+                            //     code: product.results![index].code!,
+                            //     selectedUnitId: 2,
+                            //   );
+                            // }
+                            // );
                           },
                           child: PopularFoodItem(
                             model: product.results![index],
@@ -342,7 +368,6 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                                     textColor: AppColors.blackColor,
                                     onPressed: () {
                                       if (globalKey.currentState!.validate()) {
-                                        log("categoreyId in id****::::: ${context.read<AddProductBloc>().categoreyId!}");
                                         log("catalogId in id****::::: ${context.read<AddProductBloc>().catalogId!}");
                                         log("product id in id****::::: ${widget.model.id.toString()}");
                                         context

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'core/di/injection_container.dart';
@@ -12,7 +13,17 @@ void main() async {
   await init();
   await CacheHelper.init();
   await DioHelper.init();
+  // await ProductsRepository().getProductsFromDatabsaeById();
+  // await ProductsRepository().getProductsFromDatabsae();
   Bloc.observer = MyBlocObserver();
+
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarBrightness: Brightness.dark,
+      statusBarIconBrightness: Brightness.dark,
+    ),
+  );
 
   runApp(const MainApp());
 }

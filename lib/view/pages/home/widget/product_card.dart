@@ -19,9 +19,9 @@ class ProductCard extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: SizedBox(
-        width: MediaQuery.sizeOf(context).width * 0.5,
+        width: MediaQuery.sizeOf(context).width * 0.605,
         child: Card(
-          elevation: 4,
+          elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12.0),
           ),

@@ -25,8 +25,9 @@ List<SingleChildWidget> providers = [
     create: (context) => sl<AddProductBloc>(),
   ),
   BlocProvider(
-      create: (context) =>
-          sl<GetProductBloc>()..add(const GetProductEvent.getProduct())),
+      create: (context) => sl<GetProductBloc>()
+        ..add(const GetProductEvent.getProduct())
+       ),
   BlocProvider(
     create: (context) => sl<EditProductBloc>(),
   ),

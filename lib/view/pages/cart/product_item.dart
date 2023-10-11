@@ -6,11 +6,11 @@ import '../../../data/models/response/cart_model.dart';
 
 class ProductItem extends StatelessWidget {
   final VoidCallback onTap;
-  final ShoppingCartItem cartModel;
+  final ShoppingCartItem cartItemModel;
   const ProductItem({
     super.key,
     required this.onTap,
-    required this.cartModel,
+    required this.cartItemModel,
     // required this.orderModel
   });
 
@@ -41,7 +41,7 @@ class ProductItem extends StatelessWidget {
                         child: SizedBox(
                           height: MediaQuery.sizeOf(context).height * 0.09,
                           child: Image.network(
-                            cartModel.imageUrl ??
+                            cartItemModel.imageUrl ??
                                 'https://as2.ftcdn.net/v2/jpg/01/89/76/29/1000_F_189762980_jJCtXX3tM0rMEsGAB0MU0nMBYM5dZU89.jpg',
                           ),
                         ),
@@ -51,12 +51,13 @@ class ProductItem extends StatelessWidget {
                       ),
                       Column(
                         children: [
-                          TOTTextAtom.bodyLarge(cartModel.name ?? 'not found'),
+                          TOTTextAtom.bodyLarge(
+                              cartItemModel.name ?? 'not found'),
                           const SizedBox(
                             height: 10,
                           ),
                           TOTTextAtom.bodyLarge(
-                            cartModel.objectType!.substring(0, 7),
+                            cartItemModel.objectType!.substring(0, 7),
                           ),
                         ],
                       )
@@ -72,11 +73,11 @@ class ProductItem extends StatelessWidget {
                       const SizedBox(
                         width: 100,
                       ),
-                      TOTTextAtom.bodyLarge(cartModel.salePrice.toString()),
+                      TOTTextAtom.bodyLarge(cartItemModel.salePrice.toString()),
                       const SizedBox(
                         width: 100,
                       ),
-                      TOTTextAtom.bodyLarge(cartModel.salePrice.toString()),
+                      TOTTextAtom.bodyLarge(cartItemModel.salePrice.toString()),
                     ],
                   )
                 ],
@@ -87,7 +88,7 @@ class ProductItem extends StatelessWidget {
                 height: MediaQuery.sizeOf(context).height * 0.13,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Colors.black,
+                  color: Colors.grey.shade400,
                 ),
                 child: Column(
                   children: [
@@ -95,20 +96,20 @@ class ProductItem extends StatelessWidget {
                       onPressed: () {},
                       icon: const Icon(
                         Icons.add,
-                        color: AppColors.white,
+                        color: AppColors.blackColor,
                       ),
                     ),
                     const Spacer(),
                     Text(
-                      cartModel.quantity.toString(),
-                      style: const TextStyle(color: AppColors.white),
+                      cartItemModel.quantity.toString(),
+                      style: const TextStyle(color: AppColors.blackColor),
                     ),
                     const Spacer(),
                     IconButton(
                       onPressed: () {},
                       icon: const Icon(
                         Icons.remove,
-                        color: AppColors.white,
+                        color: AppColors.blackColor,
                       ),
                     )
                   ],
