@@ -20,6 +20,7 @@ mixin _$CategoryState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
+    required TResult Function() tokenExpair,
     required TResult Function(CategoryResponseModel catalog) loadSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -27,6 +28,7 @@ mixin _$CategoryState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
+    TResult? Function()? tokenExpair,
     TResult? Function(CategoryResponseModel catalog)? loadSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -34,6 +36,7 @@ mixin _$CategoryState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
+    TResult Function()? tokenExpair,
     TResult Function(CategoryResponseModel catalog)? loadSuccess,
     required TResult orElse(),
   }) =>
@@ -42,6 +45,7 @@ mixin _$CategoryState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_TokenExpair value) tokenExpair,
     required TResult Function(_LoadSuccess value) loadSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -49,6 +53,7 @@ mixin _$CategoryState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
+    TResult? Function(_TokenExpair value)? tokenExpair,
     TResult? Function(_LoadSuccess value)? loadSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +61,7 @@ mixin _$CategoryState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_TokenExpair value)? tokenExpair,
     TResult Function(_LoadSuccess value)? loadSuccess,
     required TResult orElse(),
   }) =>
@@ -119,6 +125,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
+    required TResult Function() tokenExpair,
     required TResult Function(CategoryResponseModel catalog) loadSuccess,
   }) {
     return initial();
@@ -129,6 +136,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
+    TResult? Function()? tokenExpair,
     TResult? Function(CategoryResponseModel catalog)? loadSuccess,
   }) {
     return initial?.call();
@@ -139,6 +147,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
+    TResult Function()? tokenExpair,
     TResult Function(CategoryResponseModel catalog)? loadSuccess,
     required TResult orElse(),
   }) {
@@ -153,6 +162,7 @@ class _$_Initial implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_TokenExpair value) tokenExpair,
     required TResult Function(_LoadSuccess value) loadSuccess,
   }) {
     return initial(this);
@@ -163,6 +173,7 @@ class _$_Initial implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
+    TResult? Function(_TokenExpair value)? tokenExpair,
     TResult? Function(_LoadSuccess value)? loadSuccess,
   }) {
     return initial?.call(this);
@@ -173,6 +184,7 @@ class _$_Initial implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_TokenExpair value)? tokenExpair,
     TResult Function(_LoadSuccess value)? loadSuccess,
     required TResult orElse(),
   }) {
@@ -227,6 +239,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
+    required TResult Function() tokenExpair,
     required TResult Function(CategoryResponseModel catalog) loadSuccess,
   }) {
     return loadInProgress();
@@ -237,6 +250,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
+    TResult? Function()? tokenExpair,
     TResult? Function(CategoryResponseModel catalog)? loadSuccess,
   }) {
     return loadInProgress?.call();
@@ -247,6 +261,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
+    TResult Function()? tokenExpair,
     TResult Function(CategoryResponseModel catalog)? loadSuccess,
     required TResult orElse(),
   }) {
@@ -261,6 +276,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_TokenExpair value) tokenExpair,
     required TResult Function(_LoadSuccess value) loadSuccess,
   }) {
     return loadInProgress(this);
@@ -271,6 +287,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
+    TResult? Function(_TokenExpair value)? tokenExpair,
     TResult? Function(_LoadSuccess value)? loadSuccess,
   }) {
     return loadInProgress?.call(this);
@@ -281,6 +298,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_TokenExpair value)? tokenExpair,
     TResult Function(_LoadSuccess value)? loadSuccess,
     required TResult orElse(),
   }) {
@@ -293,6 +311,120 @@ class _$_LoadInProgress implements _LoadInProgress {
 
 abstract class _LoadInProgress implements CategoryState {
   const factory _LoadInProgress() = _$_LoadInProgress;
+}
+
+/// @nodoc
+abstract class _$$_TokenExpairCopyWith<$Res> {
+  factory _$$_TokenExpairCopyWith(
+          _$_TokenExpair value, $Res Function(_$_TokenExpair) then) =
+      __$$_TokenExpairCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_TokenExpairCopyWithImpl<$Res>
+    extends _$CategoryStateCopyWithImpl<$Res, _$_TokenExpair>
+    implements _$$_TokenExpairCopyWith<$Res> {
+  __$$_TokenExpairCopyWithImpl(
+      _$_TokenExpair _value, $Res Function(_$_TokenExpair) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_TokenExpair implements _TokenExpair {
+  const _$_TokenExpair();
+
+  @override
+  String toString() {
+    return 'CategoryState.tokenExpair()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_TokenExpair);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function() tokenExpair,
+    required TResult Function(CategoryResponseModel catalog) loadSuccess,
+  }) {
+    return tokenExpair();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadInProgress,
+    TResult? Function()? tokenExpair,
+    TResult? Function(CategoryResponseModel catalog)? loadSuccess,
+  }) {
+    return tokenExpair?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function()? tokenExpair,
+    TResult Function(CategoryResponseModel catalog)? loadSuccess,
+    required TResult orElse(),
+  }) {
+    if (tokenExpair != null) {
+      return tokenExpair();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_TokenExpair value) tokenExpair,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+  }) {
+    return tokenExpair(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadInProgress value)? loadInProgress,
+    TResult? Function(_TokenExpair value)? tokenExpair,
+    TResult? Function(_LoadSuccess value)? loadSuccess,
+  }) {
+    return tokenExpair?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_TokenExpair value)? tokenExpair,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    required TResult orElse(),
+  }) {
+    if (tokenExpair != null) {
+      return tokenExpair(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TokenExpair implements CategoryState {
+  const factory _TokenExpair() = _$_TokenExpair;
 }
 
 /// @nodoc
@@ -371,6 +503,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
+    required TResult Function() tokenExpair,
     required TResult Function(CategoryResponseModel catalog) loadSuccess,
   }) {
     return loadSuccess(catalog);
@@ -381,6 +514,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
+    TResult? Function()? tokenExpair,
     TResult? Function(CategoryResponseModel catalog)? loadSuccess,
   }) {
     return loadSuccess?.call(catalog);
@@ -391,6 +525,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
+    TResult Function()? tokenExpair,
     TResult Function(CategoryResponseModel catalog)? loadSuccess,
     required TResult orElse(),
   }) {
@@ -405,6 +540,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_TokenExpair value) tokenExpair,
     required TResult Function(_LoadSuccess value) loadSuccess,
   }) {
     return loadSuccess(this);
@@ -415,6 +551,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
+    TResult? Function(_TokenExpair value)? tokenExpair,
     TResult? Function(_LoadSuccess value)? loadSuccess,
   }) {
     return loadSuccess?.call(this);
@@ -425,6 +562,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_TokenExpair value)? tokenExpair,
     TResult Function(_LoadSuccess value)? loadSuccess,
     required TResult orElse(),
   }) {

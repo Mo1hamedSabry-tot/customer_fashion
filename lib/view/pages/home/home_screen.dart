@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:vendor_foody/core/di/injection_container.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/core/utils/show_snack_bar.dart';
 import 'package:vendor_foody/data/models/response/list_entires_product_model.dart';
@@ -13,6 +14,7 @@ import 'package:vendor_foody/view/blocs/get_product/get_product_bloc.dart';
 import 'package:vendor_foody/view/pages/categry_details/category_details.dart';
 import 'package:vendor_foody/view/pages/home/widget/category_tem.dart';
 import 'package:vendor_foody/view/pages/home/widget/home_slider.dart';
+import 'package:vendor_foody/view/pages/login/login_screen.dart';
 
 import '../../../core/custom/shimer_list_view.dart';
 import 'widget/product_card.dart';
@@ -33,7 +35,16 @@ class HomeScreen extends StatelessWidget {
               height: MediaQuery.sizeOf(context).height * 0.1,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: BlocBuilder<CategoryBloc, CategoryState>(
+                child: BlocConsumer<CategoryBloc, CategoryState>(
+                  listener: (context, state) {
+                    state.maybeWhen(
+                      orElse: () {},
+                      tokenExpair: () {
+                        Navigator.pushNamed(context, LoginScreen.routeName);
+                        mySharedPreferences.remove('access_token');
+                      },
+                    );
+                  },
                   builder: (context, state) {
                     return state.maybeWhen(
                       orElse: () {
