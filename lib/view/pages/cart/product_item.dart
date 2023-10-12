@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
 
+import '../../../data/models/response/cart_model.dart';
+
 class ProductItem extends StatelessWidget {
   final VoidCallback onTap;
-  // final CustomerOrderResult orderModel;
+  final ShoppingCartItem cartItemModel;
   const ProductItem({
     super.key,
     required this.onTap,
+    required this.cartItemModel,
     // required this.orderModel
   });
 
@@ -23,53 +26,94 @@ class ProductItem extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.15,
           width: double.infinity,
           decoration: BoxDecoration(
-              color: AppColors.white, borderRadius: BorderRadius.circular(20)),
-          child: const Column(
-            mainAxisSize: MainAxisSize.min,
+              color: Colors.white, borderRadius: BorderRadius.circular(20)),
+          child: Row(
             children: [
-              Row(
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
-                    height: 65,
-                    child: TOTAvatarAtom.network(
-                      // "orderModel.imageUrl ??"
-                      'https://as2.ftcdn.net/v2/jpg/01/89/76/29/1000_F_189762980_jJCtXX3tM0rMEsGAB0MU0nMBYM5dZU89.jpg',
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Column(
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      TOTTextAtom.bodyLarge('gfdgdf'
-                          // orderModel.customerName ?? 'not found',
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: SizedBox(
+                          height: MediaQuery.sizeOf(context).height * 0.09,
+                          child: Image.network(
+                            cartItemModel.imageUrl ??
+                                'https://as2.ftcdn.net/v2/jpg/01/89/76/29/1000_F_189762980_jJCtXX3tM0rMEsGAB0MU0nMBYM5dZU89.jpg',
                           ),
-                      SizedBox(
-                        height: 3,
+                        ),
                       ),
-                      TOTTextAtom.bodyLarge('ksdhjfkl'
-                          // orderModel.objectType!.substring(0, 7),
+                      SizedBox(
+                        width: MediaQuery.sizeOf(context).width * 0.08,
+                      ),
+                      Column(
+                        children: [
+                          TOTTextAtom.bodyLarge(
+                              cartItemModel.name ?? 'not found'),
+                          const SizedBox(
+                            height: 10,
                           ),
+                          TOTTextAtom.bodyLarge(
+                            cartItemModel.objectType!.substring(0, 7),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                  const Divider(
+                    color: Colors.black,
+                    thickness: 2,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const SizedBox(
+                        width: 100,
+                      ),
+                      TOTTextAtom.bodyLarge(cartItemModel.salePrice.toString()),
+                      const SizedBox(
+                        width: 100,
+                      ),
+                      TOTTextAtom.bodyLarge(cartItemModel.salePrice.toString()),
                     ],
                   )
                 ],
               ),
-              Divider(
-                color: Color(0xFFf4f5f8),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  TOTTextAtom.bodyLarge('fgdsgdsgdfsg'
-                      // orderModel.id.toString().substring(0, 7),
+              const Spacer(),
+              Container(
+                width: MediaQuery.sizeOf(context).width * 0.1,
+                height: MediaQuery.sizeOf(context).height * 0.13,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.grey.shade300,
+                ),
+                child: Column(
+                  children: [
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.add,
+                        color: AppColors.blackColor,
                       ),
-                  TOTTextAtom.bodyLarge('fgdsgdsgdfsg'
-                      // orderModel.status.toString(),
+                    ),
+                    const Spacer(),
+                    Text(
+                      cartItemModel.quantity.toString(),
+                      style: const TextStyle(color: AppColors.blackColor),
+                    ),
+                    const Spacer(),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.remove,
+                        color: AppColors.blackColor,
                       ),
-                  TOTTextAtom.bodyLarge('fgdsgdsgdfsg')
-                  //  '${orderModel.sum.toString()}\$',
-                  // ),
-                ],
+                    )
+                  ],
+                ),
               )
             ],
           ),

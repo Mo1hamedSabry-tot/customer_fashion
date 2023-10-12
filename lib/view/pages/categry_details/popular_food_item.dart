@@ -46,8 +46,8 @@ class PopularFoodItem extends StatelessWidget {
                 const Spacer(),
                 CachedNetworkImage(
                     fit: BoxFit.cover,
-                    width: 100,
-                    height: 100,
+                    width: 150,
+                    height: 150,
                     placeholder: (context, url) => Center(
                           child: Center(
                             child: SizedBox(
@@ -93,7 +93,7 @@ class PopularFoodItem extends StatelessWidget {
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: AppColors.orangeColor),
+                      color: Colors.grey.shade400),
                   child: const TOTIconWithTextMolecule(
                       codePoint: 0xe03a,
                       text: 'pending',

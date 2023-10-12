@@ -18,8 +18,8 @@ class ProductsRepository {
           token: CacheHelper.get('access_token'),
           data: {
             "skip": 0,
-            "catalogID": "f5790b39-4fc8-4aad-8318-259d28595f05",
-            "categoryId": categoryId ?? "5bd41b52-d041-4f82-95e3-f29cf1dfe2d1",
+            "catalogID": "0a841b7e-c732-4738-913d-9e43c054170e",
+            "categoryId": categoryId ?? "111003000000",
             "take": 300,
             // "productType": "Physical",
           }).then((value) {
@@ -28,8 +28,31 @@ class ProductsRepository {
     } catch (e) {
       log('***cccccccathhhh in ProductsRepository*** ${e.toString()}');
     }
+    log('***313513 in ProductsRepository*** ${dataModel.toString()}');
     return dataModel!;
   }
+
+  // Future<ListEntriesProducts> getProductsFromDatabsaeById() async {
+  //   ListEntriesProducts? dataModel;
+  //   try {
+  //     await DioHelper.postData(
+  //         url: Endpoint.listEntriesEndPoint,
+  //         token: CacheHelper.get('access_token'),
+  //         data: {
+  //           "skip": 0,
+  //           "catalogID": "0a841b7e-c732-4738-913d-9e43c054170e",
+  //           "categoryId": '111003000000',
+  //           "take": 300,
+  //           // "productType": "Physical",
+  //         }).then((value) {
+  //       dataModel = ListEntriesProducts.fromJson(value.data);
+  //     });
+  //   } catch (e) {
+  //     log('***cccccccathhhh in ProductsRepository*** ${e.toString()}');
+  //   }
+  //   log('***dataModel989898989 in ProductsRepository*** ${dataModel.toString()}');
+  //   return dataModel!;
+  // }
 
   Future<ListEntriesProducts> searchInPrducts(
       {String? categoryId, String? searchPhrase}) async {
@@ -39,8 +62,8 @@ class ProductsRepository {
           url: Endpoint.listEntriesEndPoint,
           token: CacheHelper.get('access_token'),
           data: {
-            "catalogID": "f5790b39-4fc8-4aad-8318-259d28595f05",
-            "categoryId": categoryId ?? "5bd41b52-d041-4f82-95e3-f29cf1dfe2d1",
+            "catalogID": "0a841b7e-c732-4738-913d-9e43c054170e",
+            "categoryId": categoryId ?? "0a841b7e-c732-4738-913d-9e43c054170e",
             "searchPhrase": searchPhrase,
             // "productType": "Physical",
           }).then((value) {

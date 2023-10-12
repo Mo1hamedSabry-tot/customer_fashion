@@ -37,9 +37,10 @@ class AuthRepository {
         url: Endpoint.logoutEndPoint,
         token: CacheHelper.get('access_token'),
       );
-      log(':::::::::::::**** logOut ${data.statusCode}');
+     
       return Right(data.statusCode ?? 0);
     } catch (e) {
+      log(':::::::::::::**** logOut ${e.toString()}');
       return Left(e.toString());
     }
   }

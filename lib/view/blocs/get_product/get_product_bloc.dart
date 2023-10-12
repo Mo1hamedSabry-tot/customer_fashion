@@ -21,14 +21,26 @@ class GetProductBloc extends Bloc<GetProductEvent, GetProductState> {
               .getProductsFromDatabsae(categoryId: v.categoryId);
           if (data.totalCount == 0) {
             emit(_Notdata(data));
-          } else {
+          }
+          
+           else {
             emit(_LoadSuccess(data));
           }
         },
+        // getProductById: (value) async {
+        //   emit(const _LoadInProgress());
+        //   final ListEntriesProducts data =
+        //       await repository.getProductsFromDatabsaeById();
+        //   if (data.totalCount == 0) {
+        //     emit(_Notdata(data));
+        //   } else {
+        //     emit(_LoadSuccessById(data));
+        //   }
+        // },
         searchProduct: (value) async {
           emit(const _LoadInProgress());
-          final ListEntriesProducts data =
-              await repository.searchInPrducts(categoryId: value.categoryId,searchPhrase: value.word);
+          final ListEntriesProducts data = await repository.searchInPrducts(
+              categoryId: value.categoryId, searchPhrase: value.word);
           if (data.totalCount == 0) {
             emit(_Notdata(data));
           } else {
