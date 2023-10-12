@@ -4,7 +4,6 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/core/utils/cache_helper.dart';
 import 'package:vendor_foody/core/utils/show_snack_bar.dart';
-import 'package:vendor_foody/view/blocs/cart/cart_bloc.dart';
 import 'package:vendor_foody/view/pages/cart/cart_screen.dart';
 import 'package:vendor_foody/view/pages/favorite/favorite_screen.dart';
 import 'package:vendor_foody/view/pages/home/home_screen.dart';
@@ -40,8 +39,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
     ];
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          
+          backgroundColor: Colors.white,
           elevation: 0.0,
           title: TOTTextAtom.headLineSmall(titleAppbar[curIndex], color: black),
           centerTitle: true,
@@ -113,9 +111,6 @@ class _LayoutScreenState extends State<LayoutScreen> {
             onTap: (index) {
               curIndex = index;
               setState(() {});
-              if (curIndex == 2) {
-                context.read<CartBloc>().add(const CartEvent.getCart());
-              }
             },
             items: const [
               BottomNavigationBarItem(

@@ -10,7 +10,8 @@ abstract class Endpoint {
   static const getCatologsEndPoint =
       'api/catalog/catalogs/search'; //! get catologs
   static const getCategoryEndPoint =
-      'api/catalog/search/categories'; //! get category
+  "api/catalog/listentries";
+      // 'api/catalog/search/categories'; //! get category
   static const getOrderEndPoint =
       'api/order/customerOrders/search'; //! get order
   static const updateOrderEndPoint = "api/order/customerOrders";

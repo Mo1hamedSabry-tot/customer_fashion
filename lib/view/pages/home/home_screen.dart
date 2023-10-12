@@ -73,37 +73,26 @@ class HomeScreen extends StatelessWidget {
                       },
                       loadSuccess: (category) {
                         return ListView.builder(
-                            itemCount: category.items.length,
+                            itemCount: category.results.length,
                             scrollDirection: Axis.horizontal,
                             itemBuilder: (context, index) {
                               return CategoryItem(
                                 id: 1,
                                 onTab: () {
-                                  log('44444444444444${category.items[index].id}');
-                                  log('44444444444444${category.items[index].catalogId}');
+                                  log('44444444444444${category.results[index].id}');
+                                  log('44444444444444${category.results[index].catalogId}');
                                   context.read<AddProductBloc>().categoreyName =
-                                      category.items[index].name;
-                                  // context.read<AddProductBloc>().catalogId =
-                                  //     category.items[index].catalogId;
-                                  // context.read<AddProductBloc>().categoreyId =
-                                  //     category.items[index].id;
+                                      category.results[index].name;
 
                                   context.read<GetProductBloc>().add(
                                       GetProductEvent.getProduct(
                                           categoryId:
-                                              category.items[index].id));
+                                              category.results[index].id));
                                   Navigator.pushNamed(
                                       context, CategoryDetails.routeName,
-                                      arguments: category.items[index].name);
-                                  // if (context.mounted) {
-
-                                  //   context
-                                  //           .read<AddProductBloc>()
-                                  //           .categoreyName =
-                                  //       category.items[index].name;
-                                  // }
+                                      arguments: category.results[index].name);
                                 },
-                                title: category.items[index].name,
+                                title: category.results[index].name,
                               );
                             });
                       },
@@ -118,9 +107,9 @@ class HomeScreen extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(
-                    'AllProduct',
+                    'Last visit',
                     style: TextStyle(
-                        color: Color.fromARGB(255, 108, 107, 107),
+                        color: Color(0xFFff8900),
                         fontSize: 15,
                         fontWeight: FontWeight.bold),
                   ),
@@ -153,7 +142,7 @@ class HomeScreen extends StatelessWidget {
                                 },
                                 title: product.results![index].name!,
                                 imageUrl: product.results![index].imageUrl ??
-                                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEL-KFPtuGQEgO105UB_6JQBoWMZ6iD-N4rr5LcLlEh0XxXqgGKIOJAkvL4RpAHG_Mukk&usqp=CAU',
+                                    'https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ=',
                                 price: 29.99,
                               );
                             }),
@@ -171,9 +160,9 @@ class HomeScreen extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(
-                    'AllProduct',
+                    'Last visit',
                     style: TextStyle(
-                        color: Color.fromARGB(255, 108, 107, 107),
+                        color: Color(0xFFff8900),
                         fontSize: 15,
                         fontWeight: FontWeight.bold),
                   ),
@@ -236,7 +225,7 @@ class HomeScreen extends StatelessWidget {
                                 },
                                 title: product.results![index].name!,
                                 imageUrl: product.results![index].imageUrl ??
-                                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFRjTgHeskTbRIW2pjP60M2WZJU8zFXozfOS-pW2SbHAVBW-7UcM5fX3WWd4LUhZOSC90&usqp=CAU',
+                                    'https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ=',
                                 price: 29.99,
                               );
                             }),
@@ -334,7 +323,7 @@ class MyBottomSheet extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20.0),
                         child: Image.network(
                           model.imageUrl ??
-                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEL-KFPtuGQEgO105UB_6JQBoWMZ6iD-N4rr5LcLlEh0XxXqgGKIOJAkvL4RpAHG_Mukk&usqp=CAU', // URL of the image
+                              'https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ=', // URL of the image
                           width: MediaQuery.sizeOf(context).width * 0.3,
                           height: 150.0,
                           fit: BoxFit.cover,
@@ -362,18 +351,17 @@ class MyBottomSheet extends StatelessWidget {
                   width: MediaQuery.sizeOf(context).width * 0.65,
                   height: MediaQuery.sizeOf(context).height * 0.07,
                   decoration: BoxDecoration(
-                    color: Colors.black,
+                    color: const Color(0xFFff8900),
                     borderRadius: BorderRadius.circular(13),
-                    border: Border.all(
-                      color: Colors.black, // Border color
-                      width: 2.0, // Border width
-                    ),
                   ),
                   child: BlocConsumer<CartBloc, CartState>(
                     listener: (context, state) {
                       state.maybeWhen(
                         orElse: () {},
                         addToCartsuccess: () {
+                          context
+                              .read<CartBloc>()
+                              .add(const CartEvent.getCart());
                           ShowSnackbar.showCheckTopSnackBar(context,
                               text: 'add to cart success',
                               type: SnackBarType.success);
@@ -400,7 +388,8 @@ class MyBottomSheet extends StatelessWidget {
                                   );
                             },
                             child: const Text('+Add To Cart',
-                                style: TextStyle(color: Colors.white)),
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 20)),
                           );
                         },
                         loadInProgress: () {

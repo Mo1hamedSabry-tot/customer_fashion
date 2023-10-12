@@ -73,7 +73,6 @@ class ProductDetails extends StatelessWidget {
               children: [
                 ElevatedButton.icon(
                   onPressed: () {
-                    // Add to cart logic here
                   },
                   icon: const Icon(Icons.add_shopping_cart),
                   label: const Text('أضف للعربة'),
