@@ -21,7 +21,9 @@ class GetProductBloc extends Bloc<GetProductEvent, GetProductState> {
               .getProductsFromDatabsae(categoryId: v.categoryId);
           if (data.totalCount == 0) {
             emit(_Notdata(data));
-          } else {
+          }
+          
+           else {
             emit(_LoadSuccess(data));
           }
         },
