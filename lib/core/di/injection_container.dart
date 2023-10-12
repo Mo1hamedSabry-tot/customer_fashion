@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vendor_foody/data/repository/add_product_repo.dart';
 import 'package:vendor_foody/data/repository/cart_repo.dart';
 import 'package:vendor_foody/data/repository/category_repo.dart';
@@ -17,8 +18,10 @@ import 'package:vendor_foody/view/blocs/home_cubit/home_product_cubit.dart';
 import 'package:vendor_foody/view/blocs/order/order_bloc.dart';
 
 final GetIt sl = GetIt.instance;
-
+final SharedPreferences mySharedPreferences = sl<SharedPreferences>();
 Future<void> init() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  sl.registerSingleton(prefs);
 //? repository
 
   sl.registerSingleton<ProductRepo>(ProductRepo());

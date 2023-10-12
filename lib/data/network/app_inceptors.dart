@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:vendor_foody/core/di/injection_container.dart';
 
 class AppInterceptors extends Interceptor {
   @override
@@ -7,7 +10,9 @@ class AppInterceptors extends Interceptor {
     if (kDebugMode) {
       print('REQUEST[${options.method}] => PATH: ${options.path}');
     }
-    // options.headers["content-type"] = "application/json";
+    final String token = mySharedPreferences.getString('access_token') ?? "";
+    log("AppInterceptors :::::::::::: $token ********************************");
+    options.headers["Authorization"] = "Bearer $token";
     super.onRequest(options, handler);
   }
 

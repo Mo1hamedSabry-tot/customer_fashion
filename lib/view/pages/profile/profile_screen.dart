@@ -64,6 +64,9 @@ class ProfileScreen extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(30),
                 child: ElevatedButton(
+                    style: const ButtonStyle(
+                        backgroundColor:
+                            MaterialStatePropertyAll(Color(0xFFff8900))),
                     onPressed: () {},
                     child: const Padding(
                       padding: EdgeInsets.all(20.0),
@@ -96,7 +99,7 @@ class ProfileScreen extends StatelessWidget {
                       padding: EdgeInsets.all(20.0),
                       child: TOTTextAtom.titleLarge(
                         'Change Password',
-                        color: Colors.blue,
+                        color: Color(0xFFff8900),
                       ),
                     )),
               ),

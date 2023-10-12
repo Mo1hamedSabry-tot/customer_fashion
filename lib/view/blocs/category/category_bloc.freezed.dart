@@ -20,21 +20,21 @@ mixin _$CategoryState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(CategoryModel catalog) loadSuccess,
+    required TResult Function(CategoryResponseModel catalog) loadSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(CategoryModel catalog)? loadSuccess,
+    TResult? Function(CategoryResponseModel catalog)? loadSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(CategoryModel catalog)? loadSuccess,
+    TResult Function(CategoryResponseModel catalog)? loadSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -119,7 +119,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(CategoryModel catalog) loadSuccess,
+    required TResult Function(CategoryResponseModel catalog) loadSuccess,
   }) {
     return initial();
   }
@@ -129,7 +129,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(CategoryModel catalog)? loadSuccess,
+    TResult? Function(CategoryResponseModel catalog)? loadSuccess,
   }) {
     return initial?.call();
   }
@@ -139,7 +139,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(CategoryModel catalog)? loadSuccess,
+    TResult Function(CategoryResponseModel catalog)? loadSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -227,7 +227,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(CategoryModel catalog) loadSuccess,
+    required TResult Function(CategoryResponseModel catalog) loadSuccess,
   }) {
     return loadInProgress();
   }
@@ -237,7 +237,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(CategoryModel catalog)? loadSuccess,
+    TResult? Function(CategoryResponseModel catalog)? loadSuccess,
   }) {
     return loadInProgress?.call();
   }
@@ -247,7 +247,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(CategoryModel catalog)? loadSuccess,
+    TResult Function(CategoryResponseModel catalog)? loadSuccess,
     required TResult orElse(),
   }) {
     if (loadInProgress != null) {
@@ -301,9 +301,9 @@ abstract class _$$_LoadSuccessCopyWith<$Res> {
           _$_LoadSuccess value, $Res Function(_$_LoadSuccess) then) =
       __$$_LoadSuccessCopyWithImpl<$Res>;
   @useResult
-  $Res call({CategoryModel catalog});
+  $Res call({CategoryResponseModel catalog});
 
-  $CategoryModelCopyWith<$Res> get catalog;
+  $CategoryResponseModelCopyWith<$Res> get catalog;
 }
 
 /// @nodoc
@@ -323,14 +323,14 @@ class __$$_LoadSuccessCopyWithImpl<$Res>
       null == catalog
           ? _value.catalog
           : catalog // ignore: cast_nullable_to_non_nullable
-              as CategoryModel,
+              as CategoryResponseModel,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $CategoryModelCopyWith<$Res> get catalog {
-    return $CategoryModelCopyWith<$Res>(_value.catalog, (value) {
+  $CategoryResponseModelCopyWith<$Res> get catalog {
+    return $CategoryResponseModelCopyWith<$Res>(_value.catalog, (value) {
       return _then(_value.copyWith(catalog: value));
     });
   }
@@ -342,7 +342,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   const _$_LoadSuccess(this.catalog);
 
   @override
-  final CategoryModel catalog;
+  final CategoryResponseModel catalog;
 
   @override
   String toString() {
@@ -371,7 +371,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(CategoryModel catalog) loadSuccess,
+    required TResult Function(CategoryResponseModel catalog) loadSuccess,
   }) {
     return loadSuccess(catalog);
   }
@@ -381,7 +381,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(CategoryModel catalog)? loadSuccess,
+    TResult? Function(CategoryResponseModel catalog)? loadSuccess,
   }) {
     return loadSuccess?.call(catalog);
   }
@@ -391,7 +391,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(CategoryModel catalog)? loadSuccess,
+    TResult Function(CategoryResponseModel catalog)? loadSuccess,
     required TResult orElse(),
   }) {
     if (loadSuccess != null) {
@@ -436,9 +436,10 @@ class _$_LoadSuccess implements _LoadSuccess {
 }
 
 abstract class _LoadSuccess implements CategoryState {
-  const factory _LoadSuccess(final CategoryModel catalog) = _$_LoadSuccess;
+  const factory _LoadSuccess(final CategoryResponseModel catalog) =
+      _$_LoadSuccess;
 
-  CategoryModel get catalog;
+  CategoryResponseModel get catalog;
   @JsonKey(ignore: true)
   _$$_LoadSuccessCopyWith<_$_LoadSuccess> get copyWith =>
       throw _privateConstructorUsedError;

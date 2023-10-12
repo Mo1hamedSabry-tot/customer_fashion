@@ -13,8 +13,6 @@ void main() async {
   await init();
   await CacheHelper.init();
   await DioHelper.init();
-  // await ProductsRepository().getProductsFromDatabsaeById();
-  // await ProductsRepository().getProductsFromDatabsae();
   Bloc.observer = MyBlocObserver();
 
   SystemChrome.setSystemUIOverlayStyle(

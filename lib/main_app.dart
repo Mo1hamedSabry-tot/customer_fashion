@@ -16,7 +16,7 @@ class MainApp extends StatelessWidget {
       providers: providers,
       child: MaterialApp(
         theme: ThemeData(
-          scaffoldBackgroundColor: Colors.grey.shade200,
+          scaffoldBackgroundColor: const Color(0xFFF8F8F8),
         ),
         debugShowCheckedModeBanner: false,
         // onGenerateRoute: (settings) {

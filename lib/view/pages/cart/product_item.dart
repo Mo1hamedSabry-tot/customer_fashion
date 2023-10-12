@@ -88,7 +88,7 @@ class ProductItem extends StatelessWidget {
                 height: MediaQuery.sizeOf(context).height * 0.13,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Colors.grey.shade400,
+                  color: Colors.grey.shade300,
                 ),
                 child: Column(
                   children: [

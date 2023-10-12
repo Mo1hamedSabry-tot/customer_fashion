@@ -6,122 +6,135 @@ part of 'category_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_CategoryModel _$$_CategoryModelFromJson(Map<String, dynamic> json) =>
-    _$_CategoryModel(
-      totalCount: json['totalCount'] as int,
-      items: (json['items'] as List<dynamic>)
-          .map((e) => CategoryItem.fromJson(e as Map<String, dynamic>))
+_$_CategoryResponseModel _$$_CategoryResponseModelFromJson(
+        Map<String, dynamic> json) =>
+    _$_CategoryResponseModel(
+      listEntries: (json['listEntries'] as List<dynamic>)
+          .map((e) => CategoryEntry.fromJson(e as Map<String, dynamic>))
           .toList(),
-      aggregations: json['aggregations'] as List<dynamic>,
+      totalCount: json['totalCount'] as int,
+      results: (json['results'] as List<dynamic>)
+          .map((e) => CategoryResult.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
-Map<String, dynamic> _$$_CategoryModelToJson(_$_CategoryModel instance) =>
+Map<String, dynamic> _$$_CategoryResponseModelToJson(
+        _$_CategoryResponseModel instance) =>
     <String, dynamic>{
+      'listEntries': instance.listEntries,
       'totalCount': instance.totalCount,
-      'items': instance.items,
-      'aggregations': instance.aggregations,
+      'results': instance.results,
     };
 
-_$_CategoryItem _$$_CategoryItemFromJson(Map<String, dynamic> json) =>
-    _$_CategoryItem(
-      catalogId: json['catalogId'] as String,
+_$_CategoryEntry _$$_CategoryEntryFromJson(Map<String, dynamic> json) =>
+    _$_CategoryEntry(
+      type: json['type'] as String,
+      isActive: json['isActive'] as bool,
+      imageUrl: json['imageUrl'] as String?,
       code: json['code'] as String,
       name: json['name'] as String,
-      outline: json['outline'] as String,
-      path: json['path'] as String,
-      isVirtual: json['isVirtual'] as bool,
-      level: json['level'] as int,
-      priority: json['priority'] as int,
-      isActive: json['isActive'] as bool,
-      links: json['links'] as List<dynamic>,
+      outline:
+          (json['outline'] as List<dynamic>).map((e) => e as String).toList(),
+      path: (json['path'] as List<dynamic>).map((e) => e as String).toList(),
+      catalogId: json['catalogId'] as String,
       seoObjectType: json['seoObjectType'] as String,
       seoInfos: (json['seoInfos'] as List<dynamic>)
           .map((e) => SeoInfo.fromJson(e as Map<String, dynamic>))
           .toList(),
-      descriptions: json['descriptions'] as List<dynamic>,
-      images: json['images'] as List<dynamic>,
-      outlines: (json['outlines'] as List<dynamic>)
-          .map((e) => Outline.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      isInherited: json['isInherited'] as bool,
-      parentIsActive: json['parentIsActive'] as bool,
-      createdDate: DateTime.parse(json['createdDate'] as String),
-      modifiedDate: DateTime.parse(json['modifiedDate'] as String),
+      createdDate: json['createdDate'] as String,
+      modifiedDate: json['modifiedDate'] as String,
       createdBy: json['createdBy'] as String,
       modifiedBy: json['modifiedBy'] as String,
       id: json['id'] as String,
-      isSelected: json['isSelected'] as bool? ?? false,
     );
 
-Map<String, dynamic> _$$_CategoryItemToJson(_$_CategoryItem instance) =>
+Map<String, dynamic> _$$_CategoryEntryToJson(_$_CategoryEntry instance) =>
     <String, dynamic>{
-      'catalogId': instance.catalogId,
+      'type': instance.type,
+      'isActive': instance.isActive,
+      'imageUrl': instance.imageUrl,
       'code': instance.code,
       'name': instance.name,
       'outline': instance.outline,
       'path': instance.path,
-      'isVirtual': instance.isVirtual,
-      'level': instance.level,
-      'priority': instance.priority,
-      'isActive': instance.isActive,
-      'links': instance.links,
+      'catalogId': instance.catalogId,
       'seoObjectType': instance.seoObjectType,
       'seoInfos': instance.seoInfos,
-      'descriptions': instance.descriptions,
-      'images': instance.images,
-      'outlines': instance.outlines,
-      'isInherited': instance.isInherited,
-      'parentIsActive': instance.parentIsActive,
-      'createdDate': instance.createdDate.toIso8601String(),
-      'modifiedDate': instance.modifiedDate.toIso8601String(),
+      'createdDate': instance.createdDate,
+      'modifiedDate': instance.modifiedDate,
       'createdBy': instance.createdBy,
       'modifiedBy': instance.modifiedBy,
       'id': instance.id,
-      'isSelected': instance.isSelected,
+    };
+
+_$_CategoryResult _$$_CategoryResultFromJson(Map<String, dynamic> json) =>
+    _$_CategoryResult(
+      type: json['type'] as String,
+      isActive: json['isActive'] as bool,
+      imageUrl: json['imageUrl'] as String?,
+      code: json['code'] as String,
+      name: json['name'] as String,
+      outline:
+          (json['outline'] as List<dynamic>).map((e) => e as String).toList(),
+      path: (json['path'] as List<dynamic>).map((e) => e as String).toList(),
+      catalogId: json['catalogId'] as String,
+      seoObjectType: json['seoObjectType'] as String,
+      seoInfos: (json['seoInfos'] as List<dynamic>)
+          .map((e) => SeoInfo.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      createdDate: json['createdDate'] as String,
+      modifiedDate: json['modifiedDate'] as String,
+      createdBy: json['createdBy'] as String,
+      modifiedBy: json['modifiedBy'] as String,
+      id: json['id'] as String,
+    );
+
+Map<String, dynamic> _$$_CategoryResultToJson(_$_CategoryResult instance) =>
+    <String, dynamic>{
+      'type': instance.type,
+      'isActive': instance.isActive,
+      'imageUrl': instance.imageUrl,
+      'code': instance.code,
+      'name': instance.name,
+      'outline': instance.outline,
+      'path': instance.path,
+      'catalogId': instance.catalogId,
+      'seoObjectType': instance.seoObjectType,
+      'seoInfos': instance.seoInfos,
+      'createdDate': instance.createdDate,
+      'modifiedDate': instance.modifiedDate,
+      'createdBy': instance.createdBy,
+      'modifiedBy': instance.modifiedBy,
+      'id': instance.id,
     };
 
 _$_SeoInfo _$$_SeoInfoFromJson(Map<String, dynamic> json) => _$_SeoInfo(
-      semanticUrl: json['semanticUrl'] as String,
-      objectId: json['objectId'] as String,
-      objectType: json['objectType'] as String,
-      isActive: json['isActive'] as bool,
-      languageCode: json['languageCode'] as String,
-      id: json['id'] as String,
+      name: json['name'] as String?,
+      semanticUrl: json['semanticUrl'] as String?,
+      pageTitle: json['pageTitle'] as String?,
+      metaDescription: json['metaDescription'] as String?,
+      imageAltDescription: json['imageAltDescription'] as String?,
+      metaKeywords: json['metaKeywords'] as String?,
+      storeId: json['storeId'] as String?,
+      objectId: json['objectId'] as String?,
+      objectType: json['objectType'] as String?,
+      isActive: json['isActive'] as bool?,
+      languageCode: json['languageCode'] as String?,
+      id: json['id'] as String?,
     );
 
 Map<String, dynamic> _$$_SeoInfoToJson(_$_SeoInfo instance) =>
     <String, dynamic>{
+      'name': instance.name,
       'semanticUrl': instance.semanticUrl,
+      'pageTitle': instance.pageTitle,
+      'metaDescription': instance.metaDescription,
+      'imageAltDescription': instance.imageAltDescription,
+      'metaKeywords': instance.metaKeywords,
+      'storeId': instance.storeId,
       'objectId': instance.objectId,
       'objectType': instance.objectType,
       'isActive': instance.isActive,
       'languageCode': instance.languageCode,
       'id': instance.id,
-    };
-
-_$_Outline _$$_OutlineFromJson(Map<String, dynamic> json) => _$_Outline(
-      items: (json['items'] as List<dynamic>)
-          .map((e) => OutlineItem.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
-
-Map<String, dynamic> _$$_OutlineToJson(_$_Outline instance) =>
-    <String, dynamic>{
-      'items': instance.items,
-    };
-
-_$_OutlineItem _$$_OutlineItemFromJson(Map<String, dynamic> json) =>
-    _$_OutlineItem(
-      id: json['id'] as String,
-      seoObjectType: json['seoObjectType'] as String,
-      name: json['name'] as String,
-      hasVirtualParent: json['hasVirtualParent'] as bool,
-    );
-
-Map<String, dynamic> _$$_OutlineItemToJson(_$_OutlineItem instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'seoObjectType': instance.seoObjectType,
-      'name': instance.name,
-      'hasVirtualParent': instance.hasVirtualParent,
     };
