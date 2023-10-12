@@ -43,7 +43,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
           elevation: 0.0,
           title: TOTTextAtom.headLineSmall(titleAppbar[curIndex], color: black),
           centerTitle: true,
-          automaticallyImplyLeading: false,
+          iconTheme: const IconThemeData(color: Colors.black),
           actions: [
             BlocListener<AuthBloc, AuthState>(
               listener: (context, state) {
@@ -65,23 +65,24 @@ class _LayoutScreenState extends State<LayoutScreen> {
                 codePoint: 0xf199,
                 onPressed: () {
                   showDialog(
-                      context: context,
-                      builder: (_) {
-                        return TOTAlertDialogAtom(
-                          title: 'Logout',
-                          content: 'are you sure you want to logout',
-                          cancelText: 'Cancel',
-                          confirmText: 'yes',
-                          onCancel: () {
-                            Navigator.pop(context);
-                          },
-                          onConfirm: () {
-                            context
-                                .read<AuthBloc>()
-                                .add(const AuthEvent.logout());
-                          },
-                        );
-                      });
+                    context: context,
+                    builder: (_) {
+                      return TOTAlertDialogAtom(
+                        title: 'Logout',
+                        content: 'are you sure you want to logout',
+                        cancelText: 'Cancel',
+                        confirmText: 'yes',
+                        onCancel: () {
+                          Navigator.pop(context);
+                        },
+                        onConfirm: () {
+                          context
+                              .read<AuthBloc>()
+                              .add(const AuthEvent.logout());
+                        },
+                      );
+                    },
+                  );
                 },
                 iconColor: Colors.black,
               ),
@@ -90,12 +91,13 @@ class _LayoutScreenState extends State<LayoutScreen> {
       body: screens[curIndex],
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
-            border: Border(
-          top: BorderSide(
-            color: Colors.grey, // Set the outline color
-            width: 1.0,
-          ), // Set the outline width
-        )),
+          border: Border(
+            top: BorderSide(
+              color: Colors.grey, // Set the outline color
+              width: 1.0,
+            ), // Set the outline width
+          ),
+        ),
         child: BottomNavigationBar(
             elevation: 3,
             currentIndex: curIndex,
