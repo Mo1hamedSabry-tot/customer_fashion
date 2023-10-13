@@ -53,7 +53,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
                     CacheHelper.remove('access_token');
                     ShowSnackbar.showCheckTopSnackBar(context,
                         text: 'Logout success', type: SnackBarType.success);
-                    Navigator.pushNamed(context, LoginScreen.routeName);
+                    Navigator.pushReplacementNamed(context, LoginScreen.routeName);
                   },
                   logoutError: () {
                     ShowSnackbar.showCheckTopSnackBar(context,
