@@ -126,7 +126,7 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
             listener: (context, state) {
               state.maybeWhen(
                 loginSuccess: (model) async {
-                  Navigator.pushNamed(context, LayoutScreen.routeName);
+                  Navigator.pushReplacementNamed(context, LayoutScreen.routeName);
                   ShowSnackbar.showCheckTopSnackBar(context,
                       text: 'You are welcome', type: SnackBarType.success);
                 },
@@ -144,7 +144,8 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
                   controller: scrollController,
                   child: Form(
                     key: formKey,
-                    child: Column(children: [
+                    child: Column(
+                      children: [
                       Row(
                         children: [
                           IconButton(

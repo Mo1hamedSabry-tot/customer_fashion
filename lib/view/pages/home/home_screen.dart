@@ -126,7 +126,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: MediaQuery.sizeOf(context).height * 0.3,
+                  height: MediaQuery.sizeOf(context).height * 0.33,
                   child: BlocBuilder<GetProductBloc, GetProductState>(
                     builder: (context, state) {
                       return state.maybeWhen(
@@ -179,7 +179,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: MediaQuery.sizeOf(context).height * 0.3,
+                  height: MediaQuery.sizeOf(context).height * 0.33,
                   child: BlocBuilder<GetProductBloc, GetProductState>(
                     builder: (context, state) {
                       return state.maybeWhen(
@@ -268,7 +268,7 @@ class MyBottomSheet extends StatelessWidget {
             topLeft: Radius.circular(30),
             topRight: Radius.circular(30),
           )),
-      height: MediaQuery.sizeOf(context).height * 0.63,
+      height: MediaQuery.sizeOf(context).height * 0.7,
       width: double.infinity,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),

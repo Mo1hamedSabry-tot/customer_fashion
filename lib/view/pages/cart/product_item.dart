@@ -23,7 +23,7 @@ class ProductItem extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(5),
           margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-          height: MediaQuery.of(context).size.height * 0.15,
+          height: MediaQuery.of(context).size.height * 0.18,
           width: double.infinity,
           decoration: BoxDecoration(
               color: Colors.white, borderRadius: BorderRadius.circular(20)),
@@ -85,7 +85,7 @@ class ProductItem extends StatelessWidget {
               const Spacer(),
               Container(
                 width: MediaQuery.sizeOf(context).width * 0.1,
-                height: MediaQuery.sizeOf(context).height * 0.13,
+                height: MediaQuery.sizeOf(context).height * 0.15,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.grey.shade300,
