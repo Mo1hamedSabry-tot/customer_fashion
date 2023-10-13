@@ -39,7 +39,9 @@ class _LayoutScreenState extends State<LayoutScreen> {
     ];
     return Scaffold(
       appBar: AppBar(
+        
           backgroundColor: Colors.white,
+          automaticallyImplyLeading:false ,
           elevation: 0.0,
           title: TOTTextAtom.headLineSmall(titleAppbar[curIndex], color: black),
           centerTitle: true,
