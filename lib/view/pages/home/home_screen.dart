@@ -40,7 +40,8 @@ class HomeScreen extends StatelessWidget {
                     state.maybeWhen(
                       orElse: () {},
                       tokenExpair: () {
-                        Navigator.pushNamed(context, LoginScreen.routeName);
+                        Navigator.pushReplacementNamed(
+                            context, LoginScreen.routeName);
                         mySharedPreferences.remove('access_token');
                       },
                     );

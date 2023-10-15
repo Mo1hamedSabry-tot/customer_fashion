@@ -15,12 +15,15 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     on<CategoryEvent>((event, emit) async {
       await event.map(getCategory: (v) async {
         emit(const _LoadInProgress());
-        final CategoryResponseModel data = await repository.getCategory();
-        if (GetCategoryRepository.stutsCode==401 ) {
-          emit(const _TokenExpair());
+        final data = await repository.getCategory();
+        data.fold((l) {
+        emit(const _TokenExpair(),);
+        }, (r) {
+        emit(_LoadSuccess(r));
+        });
+        
         }
-        emit(_LoadSuccess(data));
-      });
+      );
     });
   }
 }
