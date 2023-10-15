@@ -44,6 +44,11 @@ class HomeScreen extends StatelessWidget {
                             context, LoginScreen.routeName);
                         mySharedPreferences.remove('access_token');
                       },
+                      loadSuccess: (catalog) {
+                        context
+                            .read<GetProductBloc>()
+                            .add(const GetProductEvent.getProduct());
+                      },
                     );
                   },
                   builder: (context, state) {

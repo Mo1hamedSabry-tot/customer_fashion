@@ -43,7 +43,7 @@ class LoginScreen extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: MediaQuery.sizeOf(context).width * 0.12,
+            bottom: MediaQuery.sizeOf(context).width * 0.27,
             left: MediaQuery.sizeOf(context).width * 0.05,
             child: ElevatedButton(
               onPressed: () {
@@ -72,6 +72,16 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
           ),
+          Positioned(
+            bottom: MediaQuery.sizeOf(context).width * 0.16,
+            left: MediaQuery.sizeOf(context).width * 0.4,
+            child: TextButton(
+                onPressed: () {
+                  
+                },
+                child: const Text('Signup',
+                    style: TextStyle(color: Color(0xFF1476d2), fontSize: 22))),
+          )
         ],
       ),
     );
@@ -126,7 +136,8 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
             listener: (context, state) {
               state.maybeWhen(
                 loginSuccess: (model) async {
-                  Navigator.pushReplacementNamed(context, LayoutScreen.routeName);
+                  Navigator.pushReplacementNamed(
+                      context, LayoutScreen.routeName);
                   ShowSnackbar.showCheckTopSnackBar(context,
                       text: 'You are welcome', type: SnackBarType.success);
                 },
@@ -144,8 +155,7 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
                   controller: scrollController,
                   child: Form(
                     key: formKey,
-                    child: Column(
-                      children: [
+                    child: Column(children: [
                       Row(
                         children: [
                           IconButton(
