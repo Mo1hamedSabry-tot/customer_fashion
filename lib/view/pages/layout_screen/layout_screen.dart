@@ -39,14 +39,34 @@ class _LayoutScreenState extends State<LayoutScreen> {
     ];
     return Scaffold(
       appBar: AppBar(
-        
           backgroundColor: Colors.white,
-          automaticallyImplyLeading:false ,
+          automaticallyImplyLeading: false,
+          toolbarHeight: 50,
           elevation: 0.0,
-          title: TOTTextAtom.headLineSmall(titleAppbar[curIndex], color: black),
           centerTitle: true,
           iconTheme: const IconThemeData(color: Colors.black),
           actions: [
+            Padding(
+              padding: const EdgeInsets.only(left: 10, bottom: 10),
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 252, 206, 3),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: SizedBox(
+                    width: 40,
+                    height: 45,
+                    child: Image.asset('assets/image/too_logo.png')),
+              ),
+            ),
+            const Spacer(),
+            Padding(
+              padding: const EdgeInsets.only(top: 5),
+              child: TOTTextAtom.headLineSmall(titleAppbar[curIndex],
+                  color: black),
+            ),
+            const Spacer(),
             BlocListener<AuthBloc, AuthState>(
               listener: (context, state) {
                 state.maybeWhen(
@@ -55,7 +75,8 @@ class _LayoutScreenState extends State<LayoutScreen> {
                     CacheHelper.remove('access_token');
                     ShowSnackbar.showCheckTopSnackBar(context,
                         text: 'Logout success', type: SnackBarType.success);
-                    Navigator.pushReplacementNamed(context, LoginScreen.routeName);
+                    Navigator.pushReplacementNamed(
+                        context, LoginScreen.routeName);
                   },
                   logoutError: () {
                     ShowSnackbar.showCheckTopSnackBar(context,
