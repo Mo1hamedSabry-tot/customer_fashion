@@ -18,6 +18,8 @@ abstract class Endpoint {
   static const listEntriesEndPoint = "api/catalog/listentries"; //!updateOrder
   static const searchCartEndPoint = "api/carts/search"; //!cart
   static const addItemToCartEndPoint = "api/carts/5ea8ae63-4ec4-4776-a564-276e68576ccf/items";
+  static const checkOutCartEndPoint = "api/order/customerOrders/5ea8ae63-4ec4-4776-a564-276e68576ccf";
+  static const removeItemCartEndPoint = "api/carts/5ea8ae63-4ec4-4776-a564-276e68576ccf/items";
 
 }
 ///api/platform/security/logout

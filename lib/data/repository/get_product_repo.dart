@@ -28,7 +28,6 @@ class ProductsRepository {
     } catch (e) {
       log('***cccccccathhhh in ProductsRepository*** ${e.toString()}');
     }
-    log('***313513 in ProductsRepository*** ${dataModel.toString()}');
     return dataModel!;
   }
 

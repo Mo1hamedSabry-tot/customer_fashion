@@ -1,5 +1,8 @@
 import 'dart:developer';
 
+import 'package:dartz/dartz.dart';
+import 'package:vendor_foody/data/models/response/cart_check_out_model.dart';
+
 import '../../core/utils/cache_helper.dart';
 import '../models/response/cart_model.dart';
 import '../network/dio_helper.dart';
@@ -20,7 +23,6 @@ class CartRepository {
         },
       ).then((value) {
         date = ShoppingCartModel.fromJson(value.data);
-        log('999999999999 in getCartRepo ${date.toString()}');
       });
     } catch (e) {
       log('catchhhhhhhhhhhhhh in getCartRepo ${e.toString()}');
@@ -55,5 +57,37 @@ class CartRepository {
       log('catchhhhhhhhhhhhhh in addItemToCart ${e.toString()}');
     }
     return statusCode!;
+  }
+
+  Future<Either<String, CartCheckOutResponseModel>> checkOutCart() async {
+    CartCheckOutResponseModel date;
+    try {
+      final result = await DioHelper.postData(
+        url: Endpoint.checkOutCartEndPoint,
+        data: {},
+      );
+      if (result.data != null && result.statusCode == 200 ||
+          result.statusCode == 204) {
+        date = CartCheckOutResponseModel.fromJson(result.data);
+        return Right(date);
+      } else {
+        return const Left("Something went wrong! in checkOutCart");
+      }
+    } catch (error) {
+      return Left(error.toString());
+    }
+  }
+
+  Future<Either<String, int>> removeItemFromCart() async {
+    int? statusCode;
+    final res =
+        await DioHelper.deleteData(url: Endpoint.removeItemCartEndPoint);
+    if (res.statusCode == 204) {
+      statusCode = res.statusCode;
+      return Right(statusCode!);
+      
+    }else{
+      return const Left("Something went wrong! in removeItemFromCart");
+    }
   }
 }

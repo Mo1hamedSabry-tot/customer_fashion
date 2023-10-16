@@ -23,7 +23,7 @@ class DioHelper {
         },
       ),
     );
-    dio.interceptors.add(AppInterceptors());
+    dio.interceptors.add(NetworkInterceptor());
     if (kDebugMode) {
       dio.interceptors.add(LogInterceptor());
     }
