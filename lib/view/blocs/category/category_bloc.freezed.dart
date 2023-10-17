@@ -15,6 +15,156 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
+mixin _$CategoryEvent {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getCategory,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getCategory,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getCategory,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetCategory value) getCategory,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetCategory value)? getCategory,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetCategory value)? getCategory,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CategoryEventCopyWith<$Res> {
+  factory $CategoryEventCopyWith(
+          CategoryEvent value, $Res Function(CategoryEvent) then) =
+      _$CategoryEventCopyWithImpl<$Res, CategoryEvent>;
+}
+
+/// @nodoc
+class _$CategoryEventCopyWithImpl<$Res, $Val extends CategoryEvent>
+    implements $CategoryEventCopyWith<$Res> {
+  _$CategoryEventCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$_GetCategoryCopyWith<$Res> {
+  factory _$$_GetCategoryCopyWith(
+          _$_GetCategory value, $Res Function(_$_GetCategory) then) =
+      __$$_GetCategoryCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_GetCategoryCopyWithImpl<$Res>
+    extends _$CategoryEventCopyWithImpl<$Res, _$_GetCategory>
+    implements _$$_GetCategoryCopyWith<$Res> {
+  __$$_GetCategoryCopyWithImpl(
+      _$_GetCategory _value, $Res Function(_$_GetCategory) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_GetCategory implements _GetCategory {
+  const _$_GetCategory();
+
+  @override
+  String toString() {
+    return 'CategoryEvent.getCategory()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_GetCategory);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getCategory,
+  }) {
+    return getCategory();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getCategory,
+  }) {
+    return getCategory?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getCategory,
+    required TResult orElse(),
+  }) {
+    if (getCategory != null) {
+      return getCategory();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetCategory value) getCategory,
+  }) {
+    return getCategory(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetCategory value)? getCategory,
+  }) {
+    return getCategory?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetCategory value)? getCategory,
+    required TResult orElse(),
+  }) {
+    if (getCategory != null) {
+      return getCategory(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetCategory implements CategoryEvent {
+  const factory _GetCategory() = _$_GetCategory;
+}
+
+/// @nodoc
 mixin _$CategoryState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -581,154 +731,4 @@ abstract class _LoadSuccess implements CategoryState {
   @JsonKey(ignore: true)
   _$$_LoadSuccessCopyWith<_$_LoadSuccess> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-mixin _$CategoryEvent {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() getCategory,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getCategory,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getCategory,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_GetCategory value) getCategory,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetCategory value)? getCategory,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetCategory value)? getCategory,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $CategoryEventCopyWith<$Res> {
-  factory $CategoryEventCopyWith(
-          CategoryEvent value, $Res Function(CategoryEvent) then) =
-      _$CategoryEventCopyWithImpl<$Res, CategoryEvent>;
-}
-
-/// @nodoc
-class _$CategoryEventCopyWithImpl<$Res, $Val extends CategoryEvent>
-    implements $CategoryEventCopyWith<$Res> {
-  _$CategoryEventCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-}
-
-/// @nodoc
-abstract class _$$_GetCategoryCopyWith<$Res> {
-  factory _$$_GetCategoryCopyWith(
-          _$_GetCategory value, $Res Function(_$_GetCategory) then) =
-      __$$_GetCategoryCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_GetCategoryCopyWithImpl<$Res>
-    extends _$CategoryEventCopyWithImpl<$Res, _$_GetCategory>
-    implements _$$_GetCategoryCopyWith<$Res> {
-  __$$_GetCategoryCopyWithImpl(
-      _$_GetCategory _value, $Res Function(_$_GetCategory) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_GetCategory implements _GetCategory {
-  const _$_GetCategory();
-
-  @override
-  String toString() {
-    return 'CategoryEvent.getCategory()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_GetCategory);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() getCategory,
-  }) {
-    return getCategory();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getCategory,
-  }) {
-    return getCategory?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getCategory,
-    required TResult orElse(),
-  }) {
-    if (getCategory != null) {
-      return getCategory();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_GetCategory value) getCategory,
-  }) {
-    return getCategory(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetCategory value)? getCategory,
-  }) {
-    return getCategory?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetCategory value)? getCategory,
-    required TResult orElse(),
-  }) {
-    if (getCategory != null) {
-      return getCategory(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _GetCategory implements CategoryEvent {
-  const factory _GetCategory() = _$_GetCategory;
 }

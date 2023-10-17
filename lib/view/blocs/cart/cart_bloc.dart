@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:vendor_foody/data/models/response/cart_check_out_model.dart';
 import 'package:vendor_foody/data/models/response/cart_model.dart';
 import 'package:vendor_foody/data/repository/cart_repo.dart';
 
@@ -26,7 +27,22 @@ class CartBloc extends Bloc<CartEvent, CartState> {
               productId: value.productId,
               sku: value.sku,
             );
-            emit(const _$_AddToCartSuccess());
+            emit(const _AddToCartSuccess());
+          },
+          checkOut: (value) async {
+            emit(const _ButtonLoading());
+            final data = await repository.checkOutCart();
+            await data.fold(
+              (l) async {
+                emit(const _CheckOutCartUnsuccessful());
+              },
+              (r) async {
+                emit(
+                  _CheckOutCartSuccess(r),
+                );
+                  await CartRepository().removeItemFromCart();
+              },
+            );
           },
         );
       },

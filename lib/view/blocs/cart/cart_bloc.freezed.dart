@@ -19,6 +19,7 @@ mixin _$CartEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getCart,
+    required TResult Function() checkOut,
     required TResult Function(
             String productId, String catalogId, String sku, String name)
         addToCart,
@@ -27,6 +28,7 @@ mixin _$CartEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getCart,
+    TResult? Function()? checkOut,
     TResult? Function(
             String productId, String catalogId, String sku, String name)?
         addToCart,
@@ -35,6 +37,7 @@ mixin _$CartEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getCart,
+    TResult Function()? checkOut,
     TResult Function(
             String productId, String catalogId, String sku, String name)?
         addToCart,
@@ -44,18 +47,21 @@ mixin _$CartEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetCart value) getCart,
+    required TResult Function(_CheckOutCart value) checkOut,
     required TResult Function(_AddToCart value) addToCart,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetCart value)? getCart,
+    TResult? Function(_CheckOutCart value)? checkOut,
     TResult? Function(_AddToCart value)? addToCart,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetCart value)? getCart,
+    TResult Function(_CheckOutCart value)? checkOut,
     TResult Function(_AddToCart value)? addToCart,
     required TResult orElse(),
   }) =>
@@ -117,6 +123,7 @@ class _$_GetCart implements _GetCart {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getCart,
+    required TResult Function() checkOut,
     required TResult Function(
             String productId, String catalogId, String sku, String name)
         addToCart,
@@ -128,6 +135,7 @@ class _$_GetCart implements _GetCart {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getCart,
+    TResult? Function()? checkOut,
     TResult? Function(
             String productId, String catalogId, String sku, String name)?
         addToCart,
@@ -139,6 +147,7 @@ class _$_GetCart implements _GetCart {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getCart,
+    TResult Function()? checkOut,
     TResult Function(
             String productId, String catalogId, String sku, String name)?
         addToCart,
@@ -154,6 +163,7 @@ class _$_GetCart implements _GetCart {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetCart value) getCart,
+    required TResult Function(_CheckOutCart value) checkOut,
     required TResult Function(_AddToCart value) addToCart,
   }) {
     return getCart(this);
@@ -163,6 +173,7 @@ class _$_GetCart implements _GetCart {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetCart value)? getCart,
+    TResult? Function(_CheckOutCart value)? checkOut,
     TResult? Function(_AddToCart value)? addToCart,
   }) {
     return getCart?.call(this);
@@ -172,6 +183,7 @@ class _$_GetCart implements _GetCart {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetCart value)? getCart,
+    TResult Function(_CheckOutCart value)? checkOut,
     TResult Function(_AddToCart value)? addToCart,
     required TResult orElse(),
   }) {
@@ -184,6 +196,120 @@ class _$_GetCart implements _GetCart {
 
 abstract class _GetCart implements CartEvent {
   const factory _GetCart() = _$_GetCart;
+}
+
+/// @nodoc
+abstract class _$$_CheckOutCartCopyWith<$Res> {
+  factory _$$_CheckOutCartCopyWith(
+          _$_CheckOutCart value, $Res Function(_$_CheckOutCart) then) =
+      __$$_CheckOutCartCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_CheckOutCartCopyWithImpl<$Res>
+    extends _$CartEventCopyWithImpl<$Res, _$_CheckOutCart>
+    implements _$$_CheckOutCartCopyWith<$Res> {
+  __$$_CheckOutCartCopyWithImpl(
+      _$_CheckOutCart _value, $Res Function(_$_CheckOutCart) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_CheckOutCart implements _CheckOutCart {
+  const _$_CheckOutCart();
+
+  @override
+  String toString() {
+    return 'CartEvent.checkOut()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_CheckOutCart);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getCart,
+    required TResult Function() checkOut,
+    required TResult Function(
+            String productId, String catalogId, String sku, String name)
+        addToCart,
+  }) {
+    return checkOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getCart,
+    TResult? Function()? checkOut,
+    TResult? Function(
+            String productId, String catalogId, String sku, String name)?
+        addToCart,
+  }) {
+    return checkOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getCart,
+    TResult Function()? checkOut,
+    TResult Function(
+            String productId, String catalogId, String sku, String name)?
+        addToCart,
+    required TResult orElse(),
+  }) {
+    if (checkOut != null) {
+      return checkOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetCart value) getCart,
+    required TResult Function(_CheckOutCart value) checkOut,
+    required TResult Function(_AddToCart value) addToCart,
+  }) {
+    return checkOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetCart value)? getCart,
+    TResult? Function(_CheckOutCart value)? checkOut,
+    TResult? Function(_AddToCart value)? addToCart,
+  }) {
+    return checkOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetCart value)? getCart,
+    TResult Function(_CheckOutCart value)? checkOut,
+    TResult Function(_AddToCart value)? addToCart,
+    required TResult orElse(),
+  }) {
+    if (checkOut != null) {
+      return checkOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CheckOutCart implements CartEvent {
+  const factory _CheckOutCart() = _$_CheckOutCart;
 }
 
 /// @nodoc
@@ -281,6 +407,7 @@ class _$_AddToCart implements _AddToCart {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getCart,
+    required TResult Function() checkOut,
     required TResult Function(
             String productId, String catalogId, String sku, String name)
         addToCart,
@@ -292,6 +419,7 @@ class _$_AddToCart implements _AddToCart {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getCart,
+    TResult? Function()? checkOut,
     TResult? Function(
             String productId, String catalogId, String sku, String name)?
         addToCart,
@@ -303,6 +431,7 @@ class _$_AddToCart implements _AddToCart {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getCart,
+    TResult Function()? checkOut,
     TResult Function(
             String productId, String catalogId, String sku, String name)?
         addToCart,
@@ -318,6 +447,7 @@ class _$_AddToCart implements _AddToCart {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetCart value) getCart,
+    required TResult Function(_CheckOutCart value) checkOut,
     required TResult Function(_AddToCart value) addToCart,
   }) {
     return addToCart(this);
@@ -327,6 +457,7 @@ class _$_AddToCart implements _AddToCart {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetCart value)? getCart,
+    TResult? Function(_CheckOutCart value)? checkOut,
     TResult? Function(_AddToCart value)? addToCart,
   }) {
     return addToCart?.call(this);
@@ -336,6 +467,7 @@ class _$_AddToCart implements _AddToCart {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetCart value)? getCart,
+    TResult Function(_CheckOutCart value)? checkOut,
     TResult Function(_AddToCart value)? addToCart,
     required TResult orElse(),
   }) {
@@ -368,30 +500,40 @@ mixin _$CartState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
+    required TResult Function() buttonLoading,
     required TResult Function(ShoppingCartModel model) success,
     required TResult Function() unsuccessful,
     required TResult Function() addToCartsuccess,
     required TResult Function() addToCartunsuccessful,
+    required TResult Function(CartCheckOutResponseModel data)
+        checkOutCartsuccess,
+    required TResult Function() checkOutunsuccessful,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
+    TResult? Function()? buttonLoading,
     TResult? Function(ShoppingCartModel model)? success,
     TResult? Function()? unsuccessful,
     TResult? Function()? addToCartsuccess,
     TResult? Function()? addToCartunsuccessful,
+    TResult? Function(CartCheckOutResponseModel data)? checkOutCartsuccess,
+    TResult? Function()? checkOutunsuccessful,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
+    TResult Function()? buttonLoading,
     TResult Function(ShoppingCartModel model)? success,
     TResult Function()? unsuccessful,
     TResult Function()? addToCartsuccess,
     TResult Function()? addToCartunsuccessful,
+    TResult Function(CartCheckOutResponseModel data)? checkOutCartsuccess,
+    TResult Function()? checkOutunsuccessful,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -399,31 +541,41 @@ mixin _$CartState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_ButtonLoading value) buttonLoading,
     required TResult Function(_Success value) success,
     required TResult Function(_Unsuccessful value) unsuccessful,
     required TResult Function(_AddToCartSuccess value) addToCartsuccess,
     required TResult Function(_AddToCartUnsuccessful value)
         addToCartunsuccessful,
+    required TResult Function(_CheckOutCartSuccess value) checkOutCartsuccess,
+    required TResult Function(_CheckOutCartUnsuccessful value)
+        checkOutunsuccessful,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
+    TResult? Function(_ButtonLoading value)? buttonLoading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Unsuccessful value)? unsuccessful,
     TResult? Function(_AddToCartSuccess value)? addToCartsuccess,
     TResult? Function(_AddToCartUnsuccessful value)? addToCartunsuccessful,
+    TResult? Function(_CheckOutCartSuccess value)? checkOutCartsuccess,
+    TResult? Function(_CheckOutCartUnsuccessful value)? checkOutunsuccessful,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_ButtonLoading value)? buttonLoading,
     TResult Function(_Success value)? success,
     TResult Function(_Unsuccessful value)? unsuccessful,
     TResult Function(_AddToCartSuccess value)? addToCartsuccess,
     TResult Function(_AddToCartUnsuccessful value)? addToCartunsuccessful,
+    TResult Function(_CheckOutCartSuccess value)? checkOutCartsuccess,
+    TResult Function(_CheckOutCartUnsuccessful value)? checkOutunsuccessful,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -485,10 +637,14 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
+    required TResult Function() buttonLoading,
     required TResult Function(ShoppingCartModel model) success,
     required TResult Function() unsuccessful,
     required TResult Function() addToCartsuccess,
     required TResult Function() addToCartunsuccessful,
+    required TResult Function(CartCheckOutResponseModel data)
+        checkOutCartsuccess,
+    required TResult Function() checkOutunsuccessful,
   }) {
     return initial();
   }
@@ -498,10 +654,13 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
+    TResult? Function()? buttonLoading,
     TResult? Function(ShoppingCartModel model)? success,
     TResult? Function()? unsuccessful,
     TResult? Function()? addToCartsuccess,
     TResult? Function()? addToCartunsuccessful,
+    TResult? Function(CartCheckOutResponseModel data)? checkOutCartsuccess,
+    TResult? Function()? checkOutunsuccessful,
   }) {
     return initial?.call();
   }
@@ -511,10 +670,13 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
+    TResult Function()? buttonLoading,
     TResult Function(ShoppingCartModel model)? success,
     TResult Function()? unsuccessful,
     TResult Function()? addToCartsuccess,
     TResult Function()? addToCartunsuccessful,
+    TResult Function(CartCheckOutResponseModel data)? checkOutCartsuccess,
+    TResult Function()? checkOutunsuccessful,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -528,11 +690,15 @@ class _$_Initial implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_ButtonLoading value) buttonLoading,
     required TResult Function(_Success value) success,
     required TResult Function(_Unsuccessful value) unsuccessful,
     required TResult Function(_AddToCartSuccess value) addToCartsuccess,
     required TResult Function(_AddToCartUnsuccessful value)
         addToCartunsuccessful,
+    required TResult Function(_CheckOutCartSuccess value) checkOutCartsuccess,
+    required TResult Function(_CheckOutCartUnsuccessful value)
+        checkOutunsuccessful,
   }) {
     return initial(this);
   }
@@ -542,10 +708,13 @@ class _$_Initial implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
+    TResult? Function(_ButtonLoading value)? buttonLoading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Unsuccessful value)? unsuccessful,
     TResult? Function(_AddToCartSuccess value)? addToCartsuccess,
     TResult? Function(_AddToCartUnsuccessful value)? addToCartunsuccessful,
+    TResult? Function(_CheckOutCartSuccess value)? checkOutCartsuccess,
+    TResult? Function(_CheckOutCartUnsuccessful value)? checkOutunsuccessful,
   }) {
     return initial?.call(this);
   }
@@ -555,10 +724,13 @@ class _$_Initial implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_ButtonLoading value)? buttonLoading,
     TResult Function(_Success value)? success,
     TResult Function(_Unsuccessful value)? unsuccessful,
     TResult Function(_AddToCartSuccess value)? addToCartsuccess,
     TResult Function(_AddToCartUnsuccessful value)? addToCartunsuccessful,
+    TResult Function(_CheckOutCartSuccess value)? checkOutCartsuccess,
+    TResult Function(_CheckOutCartUnsuccessful value)? checkOutunsuccessful,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -612,10 +784,14 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
+    required TResult Function() buttonLoading,
     required TResult Function(ShoppingCartModel model) success,
     required TResult Function() unsuccessful,
     required TResult Function() addToCartsuccess,
     required TResult Function() addToCartunsuccessful,
+    required TResult Function(CartCheckOutResponseModel data)
+        checkOutCartsuccess,
+    required TResult Function() checkOutunsuccessful,
   }) {
     return loadInProgress();
   }
@@ -625,10 +801,13 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
+    TResult? Function()? buttonLoading,
     TResult? Function(ShoppingCartModel model)? success,
     TResult? Function()? unsuccessful,
     TResult? Function()? addToCartsuccess,
     TResult? Function()? addToCartunsuccessful,
+    TResult? Function(CartCheckOutResponseModel data)? checkOutCartsuccess,
+    TResult? Function()? checkOutunsuccessful,
   }) {
     return loadInProgress?.call();
   }
@@ -638,10 +817,13 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
+    TResult Function()? buttonLoading,
     TResult Function(ShoppingCartModel model)? success,
     TResult Function()? unsuccessful,
     TResult Function()? addToCartsuccess,
     TResult Function()? addToCartunsuccessful,
+    TResult Function(CartCheckOutResponseModel data)? checkOutCartsuccess,
+    TResult Function()? checkOutunsuccessful,
     required TResult orElse(),
   }) {
     if (loadInProgress != null) {
@@ -655,11 +837,15 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_ButtonLoading value) buttonLoading,
     required TResult Function(_Success value) success,
     required TResult Function(_Unsuccessful value) unsuccessful,
     required TResult Function(_AddToCartSuccess value) addToCartsuccess,
     required TResult Function(_AddToCartUnsuccessful value)
         addToCartunsuccessful,
+    required TResult Function(_CheckOutCartSuccess value) checkOutCartsuccess,
+    required TResult Function(_CheckOutCartUnsuccessful value)
+        checkOutunsuccessful,
   }) {
     return loadInProgress(this);
   }
@@ -669,10 +855,13 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
+    TResult? Function(_ButtonLoading value)? buttonLoading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Unsuccessful value)? unsuccessful,
     TResult? Function(_AddToCartSuccess value)? addToCartsuccess,
     TResult? Function(_AddToCartUnsuccessful value)? addToCartunsuccessful,
+    TResult? Function(_CheckOutCartSuccess value)? checkOutCartsuccess,
+    TResult? Function(_CheckOutCartUnsuccessful value)? checkOutunsuccessful,
   }) {
     return loadInProgress?.call(this);
   }
@@ -682,10 +871,13 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_ButtonLoading value)? buttonLoading,
     TResult Function(_Success value)? success,
     TResult Function(_Unsuccessful value)? unsuccessful,
     TResult Function(_AddToCartSuccess value)? addToCartsuccess,
     TResult Function(_AddToCartUnsuccessful value)? addToCartunsuccessful,
+    TResult Function(_CheckOutCartSuccess value)? checkOutCartsuccess,
+    TResult Function(_CheckOutCartUnsuccessful value)? checkOutunsuccessful,
     required TResult orElse(),
   }) {
     if (loadInProgress != null) {
@@ -697,6 +889,153 @@ class _$_LoadInProgress implements _LoadInProgress {
 
 abstract class _LoadInProgress implements CartState {
   const factory _LoadInProgress() = _$_LoadInProgress;
+}
+
+/// @nodoc
+abstract class _$$_ButtonLoadingCopyWith<$Res> {
+  factory _$$_ButtonLoadingCopyWith(
+          _$_ButtonLoading value, $Res Function(_$_ButtonLoading) then) =
+      __$$_ButtonLoadingCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ButtonLoadingCopyWithImpl<$Res>
+    extends _$CartStateCopyWithImpl<$Res, _$_ButtonLoading>
+    implements _$$_ButtonLoadingCopyWith<$Res> {
+  __$$_ButtonLoadingCopyWithImpl(
+      _$_ButtonLoading _value, $Res Function(_$_ButtonLoading) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_ButtonLoading implements _ButtonLoading {
+  const _$_ButtonLoading();
+
+  @override
+  String toString() {
+    return 'CartState.buttonLoading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ButtonLoading);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function() buttonLoading,
+    required TResult Function(ShoppingCartModel model) success,
+    required TResult Function() unsuccessful,
+    required TResult Function() addToCartsuccess,
+    required TResult Function() addToCartunsuccessful,
+    required TResult Function(CartCheckOutResponseModel data)
+        checkOutCartsuccess,
+    required TResult Function() checkOutunsuccessful,
+  }) {
+    return buttonLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadInProgress,
+    TResult? Function()? buttonLoading,
+    TResult? Function(ShoppingCartModel model)? success,
+    TResult? Function()? unsuccessful,
+    TResult? Function()? addToCartsuccess,
+    TResult? Function()? addToCartunsuccessful,
+    TResult? Function(CartCheckOutResponseModel data)? checkOutCartsuccess,
+    TResult? Function()? checkOutunsuccessful,
+  }) {
+    return buttonLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function()? buttonLoading,
+    TResult Function(ShoppingCartModel model)? success,
+    TResult Function()? unsuccessful,
+    TResult Function()? addToCartsuccess,
+    TResult Function()? addToCartunsuccessful,
+    TResult Function(CartCheckOutResponseModel data)? checkOutCartsuccess,
+    TResult Function()? checkOutunsuccessful,
+    required TResult orElse(),
+  }) {
+    if (buttonLoading != null) {
+      return buttonLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_ButtonLoading value) buttonLoading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Unsuccessful value) unsuccessful,
+    required TResult Function(_AddToCartSuccess value) addToCartsuccess,
+    required TResult Function(_AddToCartUnsuccessful value)
+        addToCartunsuccessful,
+    required TResult Function(_CheckOutCartSuccess value) checkOutCartsuccess,
+    required TResult Function(_CheckOutCartUnsuccessful value)
+        checkOutunsuccessful,
+  }) {
+    return buttonLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadInProgress value)? loadInProgress,
+    TResult? Function(_ButtonLoading value)? buttonLoading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Unsuccessful value)? unsuccessful,
+    TResult? Function(_AddToCartSuccess value)? addToCartsuccess,
+    TResult? Function(_AddToCartUnsuccessful value)? addToCartunsuccessful,
+    TResult? Function(_CheckOutCartSuccess value)? checkOutCartsuccess,
+    TResult? Function(_CheckOutCartUnsuccessful value)? checkOutunsuccessful,
+  }) {
+    return buttonLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_ButtonLoading value)? buttonLoading,
+    TResult Function(_Success value)? success,
+    TResult Function(_Unsuccessful value)? unsuccessful,
+    TResult Function(_AddToCartSuccess value)? addToCartsuccess,
+    TResult Function(_AddToCartUnsuccessful value)? addToCartunsuccessful,
+    TResult Function(_CheckOutCartSuccess value)? checkOutCartsuccess,
+    TResult Function(_CheckOutCartUnsuccessful value)? checkOutunsuccessful,
+    required TResult orElse(),
+  }) {
+    if (buttonLoading != null) {
+      return buttonLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ButtonLoading implements CartState {
+  const factory _ButtonLoading() = _$_ButtonLoading;
 }
 
 /// @nodoc
@@ -774,10 +1113,14 @@ class _$_Success implements _Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
+    required TResult Function() buttonLoading,
     required TResult Function(ShoppingCartModel model) success,
     required TResult Function() unsuccessful,
     required TResult Function() addToCartsuccess,
     required TResult Function() addToCartunsuccessful,
+    required TResult Function(CartCheckOutResponseModel data)
+        checkOutCartsuccess,
+    required TResult Function() checkOutunsuccessful,
   }) {
     return success(model);
   }
@@ -787,10 +1130,13 @@ class _$_Success implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
+    TResult? Function()? buttonLoading,
     TResult? Function(ShoppingCartModel model)? success,
     TResult? Function()? unsuccessful,
     TResult? Function()? addToCartsuccess,
     TResult? Function()? addToCartunsuccessful,
+    TResult? Function(CartCheckOutResponseModel data)? checkOutCartsuccess,
+    TResult? Function()? checkOutunsuccessful,
   }) {
     return success?.call(model);
   }
@@ -800,10 +1146,13 @@ class _$_Success implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
+    TResult Function()? buttonLoading,
     TResult Function(ShoppingCartModel model)? success,
     TResult Function()? unsuccessful,
     TResult Function()? addToCartsuccess,
     TResult Function()? addToCartunsuccessful,
+    TResult Function(CartCheckOutResponseModel data)? checkOutCartsuccess,
+    TResult Function()? checkOutunsuccessful,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -817,11 +1166,15 @@ class _$_Success implements _Success {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_ButtonLoading value) buttonLoading,
     required TResult Function(_Success value) success,
     required TResult Function(_Unsuccessful value) unsuccessful,
     required TResult Function(_AddToCartSuccess value) addToCartsuccess,
     required TResult Function(_AddToCartUnsuccessful value)
         addToCartunsuccessful,
+    required TResult Function(_CheckOutCartSuccess value) checkOutCartsuccess,
+    required TResult Function(_CheckOutCartUnsuccessful value)
+        checkOutunsuccessful,
   }) {
     return success(this);
   }
@@ -831,10 +1184,13 @@ class _$_Success implements _Success {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
+    TResult? Function(_ButtonLoading value)? buttonLoading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Unsuccessful value)? unsuccessful,
     TResult? Function(_AddToCartSuccess value)? addToCartsuccess,
     TResult? Function(_AddToCartUnsuccessful value)? addToCartunsuccessful,
+    TResult? Function(_CheckOutCartSuccess value)? checkOutCartsuccess,
+    TResult? Function(_CheckOutCartUnsuccessful value)? checkOutunsuccessful,
   }) {
     return success?.call(this);
   }
@@ -844,10 +1200,13 @@ class _$_Success implements _Success {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_ButtonLoading value)? buttonLoading,
     TResult Function(_Success value)? success,
     TResult Function(_Unsuccessful value)? unsuccessful,
     TResult Function(_AddToCartSuccess value)? addToCartsuccess,
     TResult Function(_AddToCartUnsuccessful value)? addToCartunsuccessful,
+    TResult Function(_CheckOutCartSuccess value)? checkOutCartsuccess,
+    TResult Function(_CheckOutCartUnsuccessful value)? checkOutunsuccessful,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -906,10 +1265,14 @@ class _$_Unsuccessful implements _Unsuccessful {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
+    required TResult Function() buttonLoading,
     required TResult Function(ShoppingCartModel model) success,
     required TResult Function() unsuccessful,
     required TResult Function() addToCartsuccess,
     required TResult Function() addToCartunsuccessful,
+    required TResult Function(CartCheckOutResponseModel data)
+        checkOutCartsuccess,
+    required TResult Function() checkOutunsuccessful,
   }) {
     return unsuccessful();
   }
@@ -919,10 +1282,13 @@ class _$_Unsuccessful implements _Unsuccessful {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
+    TResult? Function()? buttonLoading,
     TResult? Function(ShoppingCartModel model)? success,
     TResult? Function()? unsuccessful,
     TResult? Function()? addToCartsuccess,
     TResult? Function()? addToCartunsuccessful,
+    TResult? Function(CartCheckOutResponseModel data)? checkOutCartsuccess,
+    TResult? Function()? checkOutunsuccessful,
   }) {
     return unsuccessful?.call();
   }
@@ -932,10 +1298,13 @@ class _$_Unsuccessful implements _Unsuccessful {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
+    TResult Function()? buttonLoading,
     TResult Function(ShoppingCartModel model)? success,
     TResult Function()? unsuccessful,
     TResult Function()? addToCartsuccess,
     TResult Function()? addToCartunsuccessful,
+    TResult Function(CartCheckOutResponseModel data)? checkOutCartsuccess,
+    TResult Function()? checkOutunsuccessful,
     required TResult orElse(),
   }) {
     if (unsuccessful != null) {
@@ -949,11 +1318,15 @@ class _$_Unsuccessful implements _Unsuccessful {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_ButtonLoading value) buttonLoading,
     required TResult Function(_Success value) success,
     required TResult Function(_Unsuccessful value) unsuccessful,
     required TResult Function(_AddToCartSuccess value) addToCartsuccess,
     required TResult Function(_AddToCartUnsuccessful value)
         addToCartunsuccessful,
+    required TResult Function(_CheckOutCartSuccess value) checkOutCartsuccess,
+    required TResult Function(_CheckOutCartUnsuccessful value)
+        checkOutunsuccessful,
   }) {
     return unsuccessful(this);
   }
@@ -963,10 +1336,13 @@ class _$_Unsuccessful implements _Unsuccessful {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
+    TResult? Function(_ButtonLoading value)? buttonLoading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Unsuccessful value)? unsuccessful,
     TResult? Function(_AddToCartSuccess value)? addToCartsuccess,
     TResult? Function(_AddToCartUnsuccessful value)? addToCartunsuccessful,
+    TResult? Function(_CheckOutCartSuccess value)? checkOutCartsuccess,
+    TResult? Function(_CheckOutCartUnsuccessful value)? checkOutunsuccessful,
   }) {
     return unsuccessful?.call(this);
   }
@@ -976,10 +1352,13 @@ class _$_Unsuccessful implements _Unsuccessful {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_ButtonLoading value)? buttonLoading,
     TResult Function(_Success value)? success,
     TResult Function(_Unsuccessful value)? unsuccessful,
     TResult Function(_AddToCartSuccess value)? addToCartsuccess,
     TResult Function(_AddToCartUnsuccessful value)? addToCartunsuccessful,
+    TResult Function(_CheckOutCartSuccess value)? checkOutCartsuccess,
+    TResult Function(_CheckOutCartUnsuccessful value)? checkOutunsuccessful,
     required TResult orElse(),
   }) {
     if (unsuccessful != null) {
@@ -1033,10 +1412,14 @@ class _$_AddToCartSuccess implements _AddToCartSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
+    required TResult Function() buttonLoading,
     required TResult Function(ShoppingCartModel model) success,
     required TResult Function() unsuccessful,
     required TResult Function() addToCartsuccess,
     required TResult Function() addToCartunsuccessful,
+    required TResult Function(CartCheckOutResponseModel data)
+        checkOutCartsuccess,
+    required TResult Function() checkOutunsuccessful,
   }) {
     return addToCartsuccess();
   }
@@ -1046,10 +1429,13 @@ class _$_AddToCartSuccess implements _AddToCartSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
+    TResult? Function()? buttonLoading,
     TResult? Function(ShoppingCartModel model)? success,
     TResult? Function()? unsuccessful,
     TResult? Function()? addToCartsuccess,
     TResult? Function()? addToCartunsuccessful,
+    TResult? Function(CartCheckOutResponseModel data)? checkOutCartsuccess,
+    TResult? Function()? checkOutunsuccessful,
   }) {
     return addToCartsuccess?.call();
   }
@@ -1059,10 +1445,13 @@ class _$_AddToCartSuccess implements _AddToCartSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
+    TResult Function()? buttonLoading,
     TResult Function(ShoppingCartModel model)? success,
     TResult Function()? unsuccessful,
     TResult Function()? addToCartsuccess,
     TResult Function()? addToCartunsuccessful,
+    TResult Function(CartCheckOutResponseModel data)? checkOutCartsuccess,
+    TResult Function()? checkOutunsuccessful,
     required TResult orElse(),
   }) {
     if (addToCartsuccess != null) {
@@ -1076,11 +1465,15 @@ class _$_AddToCartSuccess implements _AddToCartSuccess {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_ButtonLoading value) buttonLoading,
     required TResult Function(_Success value) success,
     required TResult Function(_Unsuccessful value) unsuccessful,
     required TResult Function(_AddToCartSuccess value) addToCartsuccess,
     required TResult Function(_AddToCartUnsuccessful value)
         addToCartunsuccessful,
+    required TResult Function(_CheckOutCartSuccess value) checkOutCartsuccess,
+    required TResult Function(_CheckOutCartUnsuccessful value)
+        checkOutunsuccessful,
   }) {
     return addToCartsuccess(this);
   }
@@ -1090,10 +1483,13 @@ class _$_AddToCartSuccess implements _AddToCartSuccess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
+    TResult? Function(_ButtonLoading value)? buttonLoading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Unsuccessful value)? unsuccessful,
     TResult? Function(_AddToCartSuccess value)? addToCartsuccess,
     TResult? Function(_AddToCartUnsuccessful value)? addToCartunsuccessful,
+    TResult? Function(_CheckOutCartSuccess value)? checkOutCartsuccess,
+    TResult? Function(_CheckOutCartUnsuccessful value)? checkOutunsuccessful,
   }) {
     return addToCartsuccess?.call(this);
   }
@@ -1103,10 +1499,13 @@ class _$_AddToCartSuccess implements _AddToCartSuccess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_ButtonLoading value)? buttonLoading,
     TResult Function(_Success value)? success,
     TResult Function(_Unsuccessful value)? unsuccessful,
     TResult Function(_AddToCartSuccess value)? addToCartsuccess,
     TResult Function(_AddToCartUnsuccessful value)? addToCartunsuccessful,
+    TResult Function(_CheckOutCartSuccess value)? checkOutCartsuccess,
+    TResult Function(_CheckOutCartUnsuccessful value)? checkOutunsuccessful,
     required TResult orElse(),
   }) {
     if (addToCartsuccess != null) {
@@ -1160,10 +1559,14 @@ class _$_AddToCartUnsuccessful implements _AddToCartUnsuccessful {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
+    required TResult Function() buttonLoading,
     required TResult Function(ShoppingCartModel model) success,
     required TResult Function() unsuccessful,
     required TResult Function() addToCartsuccess,
     required TResult Function() addToCartunsuccessful,
+    required TResult Function(CartCheckOutResponseModel data)
+        checkOutCartsuccess,
+    required TResult Function() checkOutunsuccessful,
   }) {
     return addToCartunsuccessful();
   }
@@ -1173,10 +1576,13 @@ class _$_AddToCartUnsuccessful implements _AddToCartUnsuccessful {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
+    TResult? Function()? buttonLoading,
     TResult? Function(ShoppingCartModel model)? success,
     TResult? Function()? unsuccessful,
     TResult? Function()? addToCartsuccess,
     TResult? Function()? addToCartunsuccessful,
+    TResult? Function(CartCheckOutResponseModel data)? checkOutCartsuccess,
+    TResult? Function()? checkOutunsuccessful,
   }) {
     return addToCartunsuccessful?.call();
   }
@@ -1186,10 +1592,13 @@ class _$_AddToCartUnsuccessful implements _AddToCartUnsuccessful {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
+    TResult Function()? buttonLoading,
     TResult Function(ShoppingCartModel model)? success,
     TResult Function()? unsuccessful,
     TResult Function()? addToCartsuccess,
     TResult Function()? addToCartunsuccessful,
+    TResult Function(CartCheckOutResponseModel data)? checkOutCartsuccess,
+    TResult Function()? checkOutunsuccessful,
     required TResult orElse(),
   }) {
     if (addToCartunsuccessful != null) {
@@ -1203,11 +1612,15 @@ class _$_AddToCartUnsuccessful implements _AddToCartUnsuccessful {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_ButtonLoading value) buttonLoading,
     required TResult Function(_Success value) success,
     required TResult Function(_Unsuccessful value) unsuccessful,
     required TResult Function(_AddToCartSuccess value) addToCartsuccess,
     required TResult Function(_AddToCartUnsuccessful value)
         addToCartunsuccessful,
+    required TResult Function(_CheckOutCartSuccess value) checkOutCartsuccess,
+    required TResult Function(_CheckOutCartUnsuccessful value)
+        checkOutunsuccessful,
   }) {
     return addToCartunsuccessful(this);
   }
@@ -1217,10 +1630,13 @@ class _$_AddToCartUnsuccessful implements _AddToCartUnsuccessful {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
+    TResult? Function(_ButtonLoading value)? buttonLoading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Unsuccessful value)? unsuccessful,
     TResult? Function(_AddToCartSuccess value)? addToCartsuccess,
     TResult? Function(_AddToCartUnsuccessful value)? addToCartunsuccessful,
+    TResult? Function(_CheckOutCartSuccess value)? checkOutCartsuccess,
+    TResult? Function(_CheckOutCartUnsuccessful value)? checkOutunsuccessful,
   }) {
     return addToCartunsuccessful?.call(this);
   }
@@ -1230,10 +1646,13 @@ class _$_AddToCartUnsuccessful implements _AddToCartUnsuccessful {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_ButtonLoading value)? buttonLoading,
     TResult Function(_Success value)? success,
     TResult Function(_Unsuccessful value)? unsuccessful,
     TResult Function(_AddToCartSuccess value)? addToCartsuccess,
     TResult Function(_AddToCartUnsuccessful value)? addToCartunsuccessful,
+    TResult Function(_CheckOutCartSuccess value)? checkOutCartsuccess,
+    TResult Function(_CheckOutCartUnsuccessful value)? checkOutunsuccessful,
     required TResult orElse(),
   }) {
     if (addToCartunsuccessful != null) {
@@ -1245,4 +1664,343 @@ class _$_AddToCartUnsuccessful implements _AddToCartUnsuccessful {
 
 abstract class _AddToCartUnsuccessful implements CartState {
   const factory _AddToCartUnsuccessful() = _$_AddToCartUnsuccessful;
+}
+
+/// @nodoc
+abstract class _$$_CheckOutCartSuccessCopyWith<$Res> {
+  factory _$$_CheckOutCartSuccessCopyWith(_$_CheckOutCartSuccess value,
+          $Res Function(_$_CheckOutCartSuccess) then) =
+      __$$_CheckOutCartSuccessCopyWithImpl<$Res>;
+  @useResult
+  $Res call({CartCheckOutResponseModel data});
+
+  $CartCheckOutResponseModelCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_CheckOutCartSuccessCopyWithImpl<$Res>
+    extends _$CartStateCopyWithImpl<$Res, _$_CheckOutCartSuccess>
+    implements _$$_CheckOutCartSuccessCopyWith<$Res> {
+  __$$_CheckOutCartSuccessCopyWithImpl(_$_CheckOutCartSuccess _value,
+      $Res Function(_$_CheckOutCartSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_CheckOutCartSuccess(
+      null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as CartCheckOutResponseModel,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CartCheckOutResponseModelCopyWith<$Res> get data {
+    return $CartCheckOutResponseModelCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_CheckOutCartSuccess implements _CheckOutCartSuccess {
+  const _$_CheckOutCartSuccess(this.data);
+
+  @override
+  final CartCheckOutResponseModel data;
+
+  @override
+  String toString() {
+    return 'CartState.checkOutCartsuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_CheckOutCartSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_CheckOutCartSuccessCopyWith<_$_CheckOutCartSuccess> get copyWith =>
+      __$$_CheckOutCartSuccessCopyWithImpl<_$_CheckOutCartSuccess>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function() buttonLoading,
+    required TResult Function(ShoppingCartModel model) success,
+    required TResult Function() unsuccessful,
+    required TResult Function() addToCartsuccess,
+    required TResult Function() addToCartunsuccessful,
+    required TResult Function(CartCheckOutResponseModel data)
+        checkOutCartsuccess,
+    required TResult Function() checkOutunsuccessful,
+  }) {
+    return checkOutCartsuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadInProgress,
+    TResult? Function()? buttonLoading,
+    TResult? Function(ShoppingCartModel model)? success,
+    TResult? Function()? unsuccessful,
+    TResult? Function()? addToCartsuccess,
+    TResult? Function()? addToCartunsuccessful,
+    TResult? Function(CartCheckOutResponseModel data)? checkOutCartsuccess,
+    TResult? Function()? checkOutunsuccessful,
+  }) {
+    return checkOutCartsuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function()? buttonLoading,
+    TResult Function(ShoppingCartModel model)? success,
+    TResult Function()? unsuccessful,
+    TResult Function()? addToCartsuccess,
+    TResult Function()? addToCartunsuccessful,
+    TResult Function(CartCheckOutResponseModel data)? checkOutCartsuccess,
+    TResult Function()? checkOutunsuccessful,
+    required TResult orElse(),
+  }) {
+    if (checkOutCartsuccess != null) {
+      return checkOutCartsuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_ButtonLoading value) buttonLoading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Unsuccessful value) unsuccessful,
+    required TResult Function(_AddToCartSuccess value) addToCartsuccess,
+    required TResult Function(_AddToCartUnsuccessful value)
+        addToCartunsuccessful,
+    required TResult Function(_CheckOutCartSuccess value) checkOutCartsuccess,
+    required TResult Function(_CheckOutCartUnsuccessful value)
+        checkOutunsuccessful,
+  }) {
+    return checkOutCartsuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadInProgress value)? loadInProgress,
+    TResult? Function(_ButtonLoading value)? buttonLoading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Unsuccessful value)? unsuccessful,
+    TResult? Function(_AddToCartSuccess value)? addToCartsuccess,
+    TResult? Function(_AddToCartUnsuccessful value)? addToCartunsuccessful,
+    TResult? Function(_CheckOutCartSuccess value)? checkOutCartsuccess,
+    TResult? Function(_CheckOutCartUnsuccessful value)? checkOutunsuccessful,
+  }) {
+    return checkOutCartsuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_ButtonLoading value)? buttonLoading,
+    TResult Function(_Success value)? success,
+    TResult Function(_Unsuccessful value)? unsuccessful,
+    TResult Function(_AddToCartSuccess value)? addToCartsuccess,
+    TResult Function(_AddToCartUnsuccessful value)? addToCartunsuccessful,
+    TResult Function(_CheckOutCartSuccess value)? checkOutCartsuccess,
+    TResult Function(_CheckOutCartUnsuccessful value)? checkOutunsuccessful,
+    required TResult orElse(),
+  }) {
+    if (checkOutCartsuccess != null) {
+      return checkOutCartsuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CheckOutCartSuccess implements CartState {
+  const factory _CheckOutCartSuccess(final CartCheckOutResponseModel data) =
+      _$_CheckOutCartSuccess;
+
+  CartCheckOutResponseModel get data;
+  @JsonKey(ignore: true)
+  _$$_CheckOutCartSuccessCopyWith<_$_CheckOutCartSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_CheckOutCartUnsuccessfulCopyWith<$Res> {
+  factory _$$_CheckOutCartUnsuccessfulCopyWith(
+          _$_CheckOutCartUnsuccessful value,
+          $Res Function(_$_CheckOutCartUnsuccessful) then) =
+      __$$_CheckOutCartUnsuccessfulCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_CheckOutCartUnsuccessfulCopyWithImpl<$Res>
+    extends _$CartStateCopyWithImpl<$Res, _$_CheckOutCartUnsuccessful>
+    implements _$$_CheckOutCartUnsuccessfulCopyWith<$Res> {
+  __$$_CheckOutCartUnsuccessfulCopyWithImpl(_$_CheckOutCartUnsuccessful _value,
+      $Res Function(_$_CheckOutCartUnsuccessful) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_CheckOutCartUnsuccessful implements _CheckOutCartUnsuccessful {
+  const _$_CheckOutCartUnsuccessful();
+
+  @override
+  String toString() {
+    return 'CartState.checkOutunsuccessful()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_CheckOutCartUnsuccessful);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function() buttonLoading,
+    required TResult Function(ShoppingCartModel model) success,
+    required TResult Function() unsuccessful,
+    required TResult Function() addToCartsuccess,
+    required TResult Function() addToCartunsuccessful,
+    required TResult Function(CartCheckOutResponseModel data)
+        checkOutCartsuccess,
+    required TResult Function() checkOutunsuccessful,
+  }) {
+    return checkOutunsuccessful();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadInProgress,
+    TResult? Function()? buttonLoading,
+    TResult? Function(ShoppingCartModel model)? success,
+    TResult? Function()? unsuccessful,
+    TResult? Function()? addToCartsuccess,
+    TResult? Function()? addToCartunsuccessful,
+    TResult? Function(CartCheckOutResponseModel data)? checkOutCartsuccess,
+    TResult? Function()? checkOutunsuccessful,
+  }) {
+    return checkOutunsuccessful?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function()? buttonLoading,
+    TResult Function(ShoppingCartModel model)? success,
+    TResult Function()? unsuccessful,
+    TResult Function()? addToCartsuccess,
+    TResult Function()? addToCartunsuccessful,
+    TResult Function(CartCheckOutResponseModel data)? checkOutCartsuccess,
+    TResult Function()? checkOutunsuccessful,
+    required TResult orElse(),
+  }) {
+    if (checkOutunsuccessful != null) {
+      return checkOutunsuccessful();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_ButtonLoading value) buttonLoading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Unsuccessful value) unsuccessful,
+    required TResult Function(_AddToCartSuccess value) addToCartsuccess,
+    required TResult Function(_AddToCartUnsuccessful value)
+        addToCartunsuccessful,
+    required TResult Function(_CheckOutCartSuccess value) checkOutCartsuccess,
+    required TResult Function(_CheckOutCartUnsuccessful value)
+        checkOutunsuccessful,
+  }) {
+    return checkOutunsuccessful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadInProgress value)? loadInProgress,
+    TResult? Function(_ButtonLoading value)? buttonLoading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Unsuccessful value)? unsuccessful,
+    TResult? Function(_AddToCartSuccess value)? addToCartsuccess,
+    TResult? Function(_AddToCartUnsuccessful value)? addToCartunsuccessful,
+    TResult? Function(_CheckOutCartSuccess value)? checkOutCartsuccess,
+    TResult? Function(_CheckOutCartUnsuccessful value)? checkOutunsuccessful,
+  }) {
+    return checkOutunsuccessful?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_ButtonLoading value)? buttonLoading,
+    TResult Function(_Success value)? success,
+    TResult Function(_Unsuccessful value)? unsuccessful,
+    TResult Function(_AddToCartSuccess value)? addToCartsuccess,
+    TResult Function(_AddToCartUnsuccessful value)? addToCartunsuccessful,
+    TResult Function(_CheckOutCartSuccess value)? checkOutCartsuccess,
+    TResult Function(_CheckOutCartUnsuccessful value)? checkOutunsuccessful,
+    required TResult orElse(),
+  }) {
+    if (checkOutunsuccessful != null) {
+      return checkOutunsuccessful(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CheckOutCartUnsuccessful implements CartState {
+  const factory _CheckOutCartUnsuccessful() = _$_CheckOutCartUnsuccessful;
 }

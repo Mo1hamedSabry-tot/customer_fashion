@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
-import 'package:vendor_foody/core/utils/cache_helper.dart';
+import 'package:vendor_foody/core/di/injection_container.dart';
 import 'package:vendor_foody/core/utils/show_snack_bar.dart';
 import 'package:vendor_foody/view/pages/cart/cart_screen.dart';
 import 'package:vendor_foody/view/pages/favorite/favorite_screen.dart';
@@ -72,11 +72,14 @@ class _LayoutScreenState extends State<LayoutScreen> {
                 state.maybeWhen(
                   orElse: () {},
                   logoutSuccess: () {
-                    CacheHelper.remove('access_token');
+                    mySharedPreferences.remove('access_token');
                     ShowSnackbar.showCheckTopSnackBar(context,
                         text: 'Logout success', type: SnackBarType.success);
-                    Navigator.pushReplacementNamed(
-                        context, LoginScreen.routeName);
+                    Navigator.pushNamedAndRemoveUntil(
+                      context,
+                      LoginScreen.routeName,
+                      (route) => false,
+                    );
                   },
                   logoutError: () {
                     ShowSnackbar.showCheckTopSnackBar(context,
