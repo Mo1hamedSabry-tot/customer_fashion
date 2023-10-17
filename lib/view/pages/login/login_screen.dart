@@ -143,8 +143,11 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
                       .add(const CategoryEvent.getCategory());
                   ShowSnackbar.showCheckTopSnackBar(context,
                       text: 'You are welcome', type: SnackBarType.success);
-                  Navigator.pushReplacementNamed(
-                      context, LayoutScreen.routeName);
+                  Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    LayoutScreen.routeName,
+                    (route) => false,
+                  );
                 },
                 loginError: () async {
                   ShowSnackbar.showCheckTopSnackBar(context,
