@@ -51,15 +51,16 @@ class _LayoutScreenState extends State<LayoutScreen> {
         automaticallyImplyLeading: false,
         toolbarHeight: 50,
         elevation: 0.0,
-        centerTitle: true,
         iconTheme: const IconThemeData(color: Colors.black),
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 10, bottom: 10),
+            padding: const EdgeInsets.only(
+              right: 10,
+            ),
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 252, 206, 3),
+                color: AppColors.white,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: SizedBox(
