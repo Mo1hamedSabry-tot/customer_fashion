@@ -166,59 +166,6 @@ class LineItem with _$LineItem {
       _$LineItemFromJson(json);
 }
 
-// import 'package:freezed_annotation/freezed_annotation.dart';
-
-// part 'customer_order_models.freezed.dart';
-// part 'customer_order_models.g.dart';
-
-// @freezed
-// class OrdersModel with _$OrdersModel {
-//   factory OrdersModel({
-//     int? totalCount,
-//     List<OrdersModelResult>? results,
-//   }) = _OrdersModel;
-
-//   factory OrdersModel.fromJson(Map<String, dynamic> json) =>
-//       _$OrdersModelFromJson(json);
-// }
-
-// @freezed
-// class OrdersModelResult with _$OrdersModelResult {
-//   factory OrdersModelResult({
-//     String? rowVersion,
-//     String? customerId,
-//     String? storeId,
-//     String? storeName,
-//     String? employeeId,
-//     String? employeeName,
-//     List<ItemModel>? items,
-//     double? total,
-//     bool? isApproved,
-//     String? status,
-//     String? number,
-//     bool? isCancelled,
-//     DateTime? cancelledDate,
-//     String? cancelReason,
-//   }) = _OrdersModelResult;
-
-//   factory OrdersModelResult.fromJson(Map<String, dynamic> json) =>
-//       _$OrdersModelResultFromJson(json);
-// }
-
-// @freezed
-// class ItemModel with _$ItemModel {
-//   factory ItemModel({
-//     String? productId,
-//     String? sku,
-//     String? name,
-//     double? price,
-//     double? priceWithTax,
-//   }) = _ItemModel;
-
-//   factory ItemModel.fromJson(Map<String, dynamic> json) =>
-//       _$ItemModelFromJson(json);
-// }
-
 @unfreezed
 class OrderItemRequest with _$OrderItemRequest {
   factory OrderItemRequest({

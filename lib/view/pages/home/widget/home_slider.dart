@@ -19,51 +19,45 @@ class _HomeSliderState extends State<HomeSlider> {
       return const SizedBox();
     }
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: 10,
-          ),
-          child: SizedBox(
-            height: 150,
-            width: MediaQuery.sizeOf(context).width,
-            child: CarouselSlider(
-              items: widget.products.map((e) {
-                return SizedBox(
-                  width: MediaQuery.sizeOf(context).width,
-                  child: ClipRRect(
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(14),
-                    ),
-                    child: CachedNetworkImage(
-                      imageUrl:
-                          "https://res.cloudinary.com/dvyzuqiwz/image/upload/f_webp/w_1200/q_auto:eco/main/496095/installments-01-02.png",
+        CarouselSlider(
+          items: widget.products.map((e) {
+            return SizedBox(
+              width: MediaQuery.sizeOf(context).width,
+              child: ClipRRect(
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(14),
+                ),
+                child: CachedNetworkImage(
+                  imageUrl: "",
+                  fit: BoxFit.fill,
+                  errorWidget: (context, value, a) {
+                    return Image.asset(
+                      "assets/image/banner.png",
                       fit: BoxFit.fill,
-                      errorWidget: (context, value, a) {
-                        return Image.asset(
-                          "assets/images/splash_logo.png",
-                          fit: BoxFit.fill,
-                        );
-                      },
-                    ),
-                  ),
-                );
-              }).toList(),
-              options: CarouselOptions(
-                pauseAutoPlayOnTouch: true,
-                enlargeCenterPage: true,
-                viewportFraction: 0.95,
-                autoPlay: true,
-                autoPlayAnimationDuration: const Duration(milliseconds: 750),
-                autoPlayInterval: const Duration(seconds: 5),
-                autoPlayCurve: Curves.easeInOut,
-                onPageChanged: (index, reason) {
-                  setState(() {
-                    selectedIndex = index;
-                  });
-                },
+                    );
+                  },
+                ),
               ),
-            ),
+            );
+          }).toList(),
+          options: CarouselOptions(
+            pauseAutoPlayOnTouch: true,
+            enlargeCenterPage: true,
+            viewportFraction: 0.95,
+
+            /// Change banner height
+            aspectRatio: 16 / 8,
+            autoPlay: true,
+            autoPlayAnimationDuration: const Duration(milliseconds: 750),
+            autoPlayInterval: const Duration(seconds: 5),
+            autoPlayCurve: Curves.easeInOut,
+            onPageChanged: (index, reason) {
+              setState(() {
+                selectedIndex = index;
+              });
+            },
           ),
         ),
         _SliderIndicators(
