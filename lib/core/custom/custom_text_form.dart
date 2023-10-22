@@ -1,14 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:vendor_foody/core/theme/app_colors.dart';
 
 class CustomTextFieldWithLabel extends StatefulWidget {
   final TextEditingController controller;
   final String title;
+  final String hintText;
   final String? Function(String?)? validatee;
+  final Color lableColor;
+  final Color cursorColor;
+  final Color underlineInputBorderColor;
+  final Color focusedBorderColor;
+  final double lableFontSized;
   const CustomTextFieldWithLabel({
     super.key,
+    this.validatee,
     required this.controller,
-    required this.title, this.validatee,
+    required this.title,
+    this.lableFontSized = 22,
+    this.lableColor = Colors.black,
+    this.cursorColor = Colors.black,
+    this.underlineInputBorderColor = Colors.black,
+    this.focusedBorderColor = Colors.grey,
+    required this.hintText,
   });
 
   @override
@@ -27,25 +39,24 @@ class _CustomTextFieldWithLabelState extends State<CustomTextFieldWithLabel> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(
-            widget.title,
-            style: const TextStyle(
-                color: AppColors.blackColor,
-                fontSize: 12,
-                fontWeight: FontWeight.bold),
-          ),
+        Text(
+          widget.title,
+          style: TextStyle(
+              color: widget.lableColor,
+              fontSize: widget.lableFontSized,
+              fontWeight: FontWeight.bold),
         ),
         TextFormField(
           controller: widget.controller,
-          validator:widget.validatee ,
-          cursorColor: AppColors.blackColor,
-          decoration: const InputDecoration(
+          validator: widget.validatee,
+          cursorColor: widget.cursorColor,
+          decoration: InputDecoration(
             border: UnderlineInputBorder(
-                borderSide: BorderSide(color: AppColors.blackColor)),
+              borderSide: BorderSide(color: widget.underlineInputBorderColor),
+            ),
+            hintText: widget.hintText,
             focusedBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey)),
+                borderSide: BorderSide(color: widget.focusedBorderColor)),
           ),
         ),
       ],

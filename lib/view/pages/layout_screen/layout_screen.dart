@@ -64,9 +64,10 @@ class _LayoutScreenState extends State<LayoutScreen> {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: SizedBox(
-                  width: 40,
-                  height: 45,
-                  child: Image.asset('assets/image/too_logo.png')),
+                width: 40,
+                height: 45,
+                child: Image.asset('assets/image/too_logo.png'),
+              ),
             ),
           ),
 
@@ -211,40 +212,43 @@ class _LayoutScreenState extends State<LayoutScreen> {
             ), // Set the outline width
           ),
         ),
-        child: BottomNavigationBar(
-            elevation: 3,
-            currentIndex: curIndex,
-            backgroundColor: Colors.white,
-            type: BottomNavigationBarType.fixed,
-            selectedItemColor: const Color(0xFFff8900),
-            selectedIconTheme:
-                const IconThemeData(color: Color(0xFFff8900), size: 35),
-            unselectedItemColor: Colors.black,
+        child: Positioned(
+          top: 0,
+          child: BottomNavigationBar(
+              elevation: 3,
+              currentIndex: curIndex,
+              backgroundColor: Colors.white,
+              type: BottomNavigationBarType.fixed,
+              selectedItemColor: const Color(0xFFff8900),
+              selectedIconTheme:
+                  const IconThemeData(color: Color(0xFFff8900), size: 35),
+              unselectedItemColor: Colors.black,
 
-            //
-            // ),
-            onTap: (index) {
-              curIndex = index;
-              setState(() {});
-            },
-            items: const [
-              BottomNavigationBarItem(
-                  icon: Icon(FlutterRemix
-                      .home_8_fill), //TOTIconAtom.displayLarge(codePoint: 0xf107),
-                  label: 'Home'),
-              BottomNavigationBarItem(
-                  icon: Icon(FlutterRemix
-                      .hearts_line), //TOTIconAtom.displayLarge(codePoint: 0xf04a),
-                  label: 'Favorite'),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons
-                      .card_travel_outlined), //TOTIconAtom.displayLarge(codePoint: 0xe05a),
-                  label: 'Cart'),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons
-                      .person_2_outlined), //OTIconAtom.displayLarge(codePoint: 0xf08ae),
-                  label: 'Profile'),
-            ]),
+              //
+              // ),
+              onTap: (index) {
+                curIndex = index;
+                setState(() {});
+              },
+              items: const [
+                BottomNavigationBarItem(
+                    icon: Icon(FlutterRemix
+                        .home_8_fill), //TOTIconAtom.displayLarge(codePoint: 0xf107),
+                    label: 'Home'),
+                BottomNavigationBarItem(
+                    icon: Icon(FlutterRemix
+                        .hearts_line), //TOTIconAtom.displayLarge(codePoint: 0xf04a),
+                    label: 'Favorite'),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons
+                        .card_travel_outlined), //TOTIconAtom.displayLarge(codePoint: 0xe05a),
+                    label: 'Cart'),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons
+                        .person_2_outlined), //OTIconAtom.displayLarge(codePoint: 0xf08ae),
+                    label: 'Profile'),
+              ]),
+        ),
       ),
     );
   }

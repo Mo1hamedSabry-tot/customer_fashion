@@ -287,6 +287,7 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                           height: 20,
                         ),
                         CustomTextFieldWithLabel(
+                          hintText: 'Write Title',
                           validatee: (v) {
                             if (v!.isEmpty) {
                               return 'Title is required';
@@ -300,9 +301,10 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                           height: 20,
                         ),
                         CustomTextFieldWithLabel(
+                          hintText: 'code',
                           validatee: (v) {
                             if (v!.isEmpty) {
-                              return 'Title is required';
+                              return 'Title is code';
                             }
                             return null;
                           },

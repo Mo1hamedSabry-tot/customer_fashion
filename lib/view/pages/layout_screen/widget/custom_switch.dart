@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CustomColorSwitch extends StatefulWidget {
+class CustomColorSwitch extends StatelessWidget {
   final bool value;
   final ValueChanged<bool> onChanged;
   final Color activeColor;
@@ -15,17 +15,12 @@ class CustomColorSwitch extends StatefulWidget {
   });
 
   @override
-  _CustomColorSwitchState createState() => _CustomColorSwitchState();
-}
-
-class _CustomColorSwitchState extends State<CustomColorSwitch> {
-  @override
   Widget build(BuildContext context) {
     return Switch(
-      value: widget.value,
-      onChanged: widget.onChanged,
-      activeColor: widget.activeColor,
-      inactiveTrackColor: widget.inactiveColor,
+      value: value,
+      onChanged: onChanged,
+      activeColor: activeColor,
+      inactiveTrackColor: inactiveColor,
     );
   }
 }
