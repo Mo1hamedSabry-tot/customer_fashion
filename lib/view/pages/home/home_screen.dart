@@ -41,7 +41,10 @@ class HomeScreen extends StatelessWidget {
                       orElse: () {},
                       tokenExpair: () {
                         Navigator.pushNamedAndRemoveUntil(
-                            context, LoginScreen.routeName,(route) => false,);
+                          context,
+                          LoginScreen.routeName,
+                          (route) => false,
+                        );
                         mySharedPreferences.remove('access_token');
                       },
                       loadSuccess: (catalog) {

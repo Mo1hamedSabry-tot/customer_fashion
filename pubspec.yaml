@@ -105,6 +105,7 @@ flutter:
   assets:
     - assets/svg/
     - assets/image/
+    - assets/logo/
     - assets/lottie/
     - assets/shop/
     - assets/shop/img/products/banners/

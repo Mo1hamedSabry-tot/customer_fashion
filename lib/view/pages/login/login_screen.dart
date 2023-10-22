@@ -181,6 +181,7 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
                         ],
                       ),
                       CustomTextFieldWithLabel(
+                        hintText: 'Login',
                         controller: userNameController,
                         title: 'User Name',
                         validatee: (v) {
